@@ -132,6 +132,8 @@ Please open an issue with the [hardware report template](.github/ISSUE_TEMPLATE/
 
 ## Distribution and licensing
 
-This repository provides only community-authored text, XML, and build scripts. **It does not contain or grant redistribution rights to proprietary Amlogic, Magicsee, SlimBOXtv, Orion/LAKI images, kernel binaries, bootloader binaries, APKs, or third-party packaging tools.** Do not upload such material to GitHub Releases without confirming distribution rights. The repository owner should choose and add a license for the original scripts/documentation separately; **no license is granted by default**.
+This repository contains documentation, configuration files, and build scripts for the LAKI Hybrid firmware project. Prebuilt firmware images are not included; reproducing the build requires compatible source ROM files.
+
+The original scripts and documentation are available under the [MIT License](LICENSE). This is an independent community project focused on experimentation, knowledge sharing, and further development of firmware for the Orion LAKI TV Box.
 
 This is a community experiment, **not an official Orion/SlimBOXtv/Magicsee project**. No warranty of compatibility or recovery.
