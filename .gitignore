@@ -39,3 +39,17 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+@'
+
+# Local secrets and credentials
+.env
+.env.*
+*.sqlite
+*.sqlite3
+*.db
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+'@ | Add-Content .gitignore
