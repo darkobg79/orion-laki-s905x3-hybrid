@@ -94,6 +94,8 @@ Prvi box je već dobio X96 bootloader prilikom ranijeg flešovanja. Uspeh V4 zat
 
 **Ne uključivati naslepo `Erase flash` ili `Erase bootloader`.** Pogrešan DDR/U-Boot može sprečiti ulazak u USB Burning režim. Potreban je bekap i realan plan oporavka. Pročitaj [FLASHING.md](docs/FLASHING.md).
 
-U repozitorijumu se nalaze samo autorski tekst i alati za lokalnu pripremu. **Nisu uključeni Orion, Magicsee, SlimBOXtv ROM-ovi, operatorove IPTV aplikacije ili druge vlasničke datoteke.** Za javnu redistribuciju binarnih slika prvo treba proveriti prava. Za originalne skripte i tekst vlasnik repozitorijuma treba posebno da odredi licencu.
+U ovom repozitorijumu nalaze se dokumentacija, konfiguracioni fajlovi i skripte za izradu LAKI Hybrid firmware-a. Gotove IMG slike nisu uključene; za samostalnu izradu potrebno je obezbediti odgovarajuće ulazne ROM-ove.
+
+Skripte i dokumentacija dostupne su pod [MIT licencom](LICENSE). Projekat je nezavisan i namenjen eksperimentisanju, razmeni iskustava i daljem razvoju firmware-a za Orion LAKI TV Box.
 
 Ovo je nezavisan eksperimentalni projekat, a ne zvaničan firmware proizvođača.
