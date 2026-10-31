@@ -22,6 +22,7 @@ V4 je uspešno flešovan (`[0x00000000] Burning successfully`), Android se pokre
 
 | Komponenta | Vrednost |
 | --- | --- |
+| Model boxa | `M6CW4K` |
 | SoC | Amlogic S905X3 (`sm1`) |
 | Ploča | AC213 |
 | Fabrički DT | `sm1_ac213_g10xc2g` |

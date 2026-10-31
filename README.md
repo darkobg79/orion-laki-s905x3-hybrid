@@ -17,7 +17,7 @@ A hybrid image using the working X96 USB DDR/U-Boot components, an AC213-adjuste
 
 | Item | Observed configuration |
 | --- | --- |
-| Product | Orion LAKI TV Box |
+| Product | Orion LAKI TV Box (M6CW4K) |
 | SoC | Amlogic S905X3 (`sm1`) |
 | Board | AC213; stock DT identifier `sm1_ac213_g10xc2g` |
 | Hybrid DT identifier | `sm1_ac213_2g` |
