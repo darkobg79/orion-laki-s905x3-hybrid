@@ -1,0 +1,41 @@
+# Proprietary / personal / potentially sensitive firmware assets
+*.img
+*.bin
+*.dtb
+*.dtbo
+*.apk
+*.ko
+*.zip
+*.tar
+*.gz
+*.7z
+*.PARTITION
+*.UBOOT
+*.USB
+*.raw
+*.ext4
+*.sparse
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+*.backup
+*.bak
+
+# Build outputs, device backups, and verification stages
+LakiHybrid-*/
+LAKI-Hybrid-*.img
+LAKI-Hybrid-*-BUILD-REPORT.json
+*_VERIFY/
+*_WORK/
+*Backup*/
+__pycache__/
+*.py[cod]
+.venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

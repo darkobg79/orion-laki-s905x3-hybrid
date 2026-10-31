@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- LAKI Hybrid V5: prevent PBAP service crash on Android 9 at first boot.
+     Bluetooth app explicitly requests READ_CONTACTS, needed for PBAP.
+     fixed=false: do not lock the permission from user control. -->
+<exceptions>
+    <exception package="com.android.bluetooth">
+        <permission name="android.permission.READ_CONTACTS" fixed="false" />
+    </exception>
+</exceptions>
