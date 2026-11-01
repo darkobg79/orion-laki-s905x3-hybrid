@@ -130,6 +130,33 @@ Više detalja u [BUILD.md](docs/BUILD.md). Skripte **samo rade sa lokalnim fajlo
 
 ## V5.1 FULL AUDIO — fizički testiran na jednom uređaju
 
+### Potvrđeni rezultati testiranja — 1.11.2026.
+
+**V5.1 FULL AUDIO je uspešno flešovan i fizički testiran na jednom prethodno X96-modifikovanom Orion LAKI M6CW4K uređaju.**
+
+| Funkcionalnost | V5.1 FULL AUDIO |
+| --- | --- |
+| Flešovanje uz brisanje podataka i bootloadera | ✅ PASS |
+| Pokretanje Androida | ✅ PASS |
+| Wi-Fi povezivanje | ✅ PASS |
+| Internet pristup | ✅ PASS |
+| Bluetooth pronalaženje uređaja | ✅ PASS |
+| Bluetooth uparivanje | ✅ PASS |
+| Bluetooth zvuk | ✅ PASS |
+| IPTV slika bez zamrzavanja | ✅ PASS |
+| Analogni AUX zvuk | ✅ PASS |
+| Restart uređaja | ✅ PASS |
+| Automatska dodela Bluetooth dozvole | ⚪ Nije zasebno proverena |
+| Flešovanje na fabrički Orion bootloader | ⚪ Nije testirano |
+| Ostale hardverske funkcionalnosti | ⚪ Nisu testirane |
+
+**Status: ✅ V5.1 FULL AUDIO — HARDWARE TESTED / PASS**
+
+Stariji V5 NOBOOTLOADER i V5 FULL predstavljaju zasebne slike i nisu fizički testirani. Oznaka `UNTESTED` u istorijskom nazivu V5.1 IMG fajla ne predstavlja više stvarni status testiranja.
+
+[Detaljan zapisnik hardverskog testa](docs/V5_1_HARDWARE_VALIDATION_2026-11-01.md).
+
+
 Dana 1.11.2026. uspešno je spakovana V5.1 FULL AUDIO slika sa dve proverene V4.1 audio particije (`boot.PARTITION` i `_aml_dtb.PARTITION`), uz očuvane V5 `system` i `vendor` particije i X96 FULL bootloader zapis. Slika je raspakovana i proverena po particijama, a posebno Windows SHA-256 očitavanje potvrdilo je:
 
 `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`

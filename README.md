@@ -59,19 +59,30 @@ The V4.1 image was repacked/checked locally and physically tested, but its compl
 
 ## What has actually been confirmed?
 
-**Update:** the comparison below is historical and refers to the distinct *earlier V5* images, not V5.1. The [V5.1 hardware result](docs/V5_1_HARDWARE_VALIDATION_2026-11-01.md) separately confirms boot, Wi-Fi, Bluetooth pairing/audio, IPTV, AUX and reboot on one modified box.
+**Hardware validation (2026-11-01):** V5.1 FULL AUDIO was successfully flashed and tested on one previously X96-modified LAKI M6CW4K. The original V5 NOBOOTLOADER and V5 FULL builds remain separate, hardware-untested images.
 
-| Capability | V4 on physical box | V5 NOBOOTLOADER | V5 FULL |
-| --- | --- | --- | --- |
-| Amlogic USB Burning Tool packaging | ✅ | ✅ offline | ✅ offline |
-| Boot into Android TV | ✅ | Not tested | Not tested |
-| Wi-Fi network scan and connection | ✅ | Not tested | Not tested |
-| Unisoc modules load | ✅ | Not tested | Not tested |
-| Bluetooth enabled | ✅ after ADB permission grant | Not tested | Not tested |
-| Bluetooth device discovery | ✅ | Not tested | Not tested |
-| Pairing and Bluetooth speaker audio | ✅ | Not tested | Not tested |
-| Fresh-install Bluetooth default permission | N/A; manual grant | Unverified on device | Unverified on device |
-| First-time flashing on a stock LAKI box | Not tested as a single-step V4 flash | Not tested | **Not tested; high bootloader risk** |
+| Capability | V4 / V4.1 | V5 NOBOOTLOADER | V5 FULL (original) | V5.1 FULL AUDIO |
+| --- | --- | --- | --- | --- |
+| Firmware packaging | ✅ | ✅ Offline | ✅ Offline | ✅ PASS |
+| Physical flashing | ✅ | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| Android boot | ✅ | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| Wi-Fi connection | ✅ | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| Internet access | ✅ | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| Bluetooth discovery | ✅ | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| Bluetooth pairing | ✅ | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| Bluetooth audio | ✅ | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| IPTV video without freezing | ✅ V4.1 | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| Analog AUX audio | ✅ V4.1 | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| Restart / reboot | ⚪ Not recorded | ⚪ Not tested | ⚪ Not tested | ✅ PASS |
+| Automatic Bluetooth permission grant | ⚪ Manual on V4 | ⚪ Unverified | ⚪ Unverified | ⚪ Not separately verified |
+| Flash on untouched stock Orion bootloader | ⚪ Unverified | ⚪ Not tested | ⚪ Not tested | ⚪ Not tested |
+| Other hardware features | ⚪ Not fully tested | ⚪ Not tested | ⚪ Not tested | ⚪ Not tested |
+
+**V5.1 FULL AUDIO: ✅ HARDWARE TESTED / PASS**
+
+The historical `UNTESTED` suffix in the V5.1 IMG filename is preserved for traceability.
+
+[Detailed hardware validation](docs/V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 
 ### Confirmed Bluetooth fix on the running V4 box
 
