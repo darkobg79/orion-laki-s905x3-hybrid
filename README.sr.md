@@ -99,7 +99,7 @@ Nakon toga `dumpsys bluetooth_manager` prikazivao je `state: ON`, uređaji su us
 
 ## Izrada (Windows CMD / PowerShell + WSL 2)
 
-Potreban je sopstveni, zakonito pribavljen V4 sadržaj u `C:\LakiBox-Backup`, Python, Ubuntu/WSL 2, ext4/sparse alati i `AmlImagePack.exe` (nabavlja se zasebno).
+Za izradu V5 potreban je prethodno sastavljen V4 firmware u `C:\LakiBox-Backup`, Python, Ubuntu/WSL 2, ext4/sparse alati i `AmlImagePack.exe`. Izvorni ROM-ovi dostupni su na sajtu [slimBOXtv](https://slimboxtv.ru/): [X96 Max Plus — revizija Plus 5](https://slimboxtv.ru/x96max-plus/) i [Magicsee N5 Max X3 — revizija 152F, Unisoc UWE5621](https://slimboxtv.ru/n5max-x3/). Skripte za V5 ne sastavljaju V4 od početka.
 
 ```powershell
 wsl -u root -e bash -lc "apt update && apt install -y e2fsprogs android-sdk-libsparse-utils"

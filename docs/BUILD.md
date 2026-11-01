@@ -1,6 +1,6 @@
 # Reproducible offline build (Windows + WSL 2)
 
-This documentation describes **building** images locally, not flashing. Work only on copies of firmware files you are permitted to possess and modify. The GitHub project intentionally excludes source ROM image payloads and proprietary tools.
+This guide describes building firmware images locally, not flashing devices. The donor ROMs used for the hybrid are [X96 Max Plus — Plus 5](https://slimboxtv.ru/x96max-plus/) and [Magicsee N5 Max X3 — 152F](https://slimboxtv.ru/n5max-x3/), available through [slimBOXtv](https://slimboxtv.ru/). The repository contains build scripts and documentation, not prebuilt ROM images.
 
 ## Starting point
 

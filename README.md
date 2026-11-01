@@ -116,7 +116,7 @@ See [checksums and build provenance](docs/BUILD.md#reference-hashes) for the ori
 
 ## Build the V5 images on your own PC
 
-Only build if you have **your own lawful copies** of the compatible ROM components and the previously prepared V4 unpacked staging directory. The scripts cannot reconstruct proprietary images from source code alone.
+Building V5 requires a previously assembled and tested V4 firmware directory. The original donor ROMs are available from [slimBOXtv](https://slimboxtv.ru/): [X96 Max Plus — Plus 5 revision](https://slimboxtv.ru/x96max-plus/) and [Magicsee N5 Max X3 — 152F revision with Unisoc UWE5621](https://slimboxtv.ru/n5max-x3/). The V5 scripts do not assemble the V4 hybrid from scratch.
 
 Prerequisites:
 
