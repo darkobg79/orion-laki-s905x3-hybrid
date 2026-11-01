@@ -11,6 +11,7 @@
 - Later the **V4 hybrid** (without an explicit `PARTITION/bootloader` entry) flashed successfully, booted, and passed Wi-Fi and Bluetooth audio tests.
 - The original Magicsee ROM failed early with `DiskInitial` at ~7%.
 - V5 NOBOOTLOADER and V5 FULL were **never physically flashed** during the documented work.
+- The **V5.1 FULL AUDIO** image was built on 2026-11-01 and verified offline (including a separate image SHA-256 read). It **has not been physically flashed**. Its FULL manifest retains the explicit X96 `PARTITION/bootloader` entry. See [V5.1 build notes](V5_1_FULL_AUDIO.md).
 - The second, stock box was **not yet hardware-verified or tested**.
 
 Thus V4 working on the first box is **not evidence that the second stock box will accept V5 FULL in a single flash**.

@@ -1,11 +1,11 @@
 # Orion LAKI M6CW4K TV Box (S905X3) — Hibridni Android TV firmware
 
-**Tehnička dokumentacija za Orion LAKI M6CW4K TV Box (Amlogic S905X3 / AC213, Unisoc UWE5621) i alati za izradu V5 firmware-a iz prethodno pripremljene V4 slike.**
+**Tehnička dokumentacija za Orion LAKI M6CW4K TV Box (Amlogic S905X3 / AC213, Unisoc UWE5621) i offline alati za V5 i V5.1 iz lokalnih V4, V4.1 i V5 FULL slika.**
 
-[English README](README.md) · [V4.1 audio provera](docs/V4_1_AUDIO.md) · [Uputstvo za izradu](docs/BUILD.md) · [Hardver](docs/HARDWARE.md) · [Problemi i rešenja](docs/TROUBLESHOOTING.md) · [Rizici flešovanja](docs/FLASHING.md)
+[English README](README.md) · [V4.1 audio provera](docs/V4_1_AUDIO.md) · [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md) · [Uputstvo za izradu](docs/BUILD.md) · [Hardver](docs/HARDWARE.md) · [Problemi i rešenja](docs/TROUBLESHOOTING.md) · [Rizici flešovanja](docs/FLASHING.md)
 
 > [!IMPORTANT]
-> **V4.1 je najnovija verzija stvarno testirana na jednom uređaju: IPTV slika, Wi-Fi, Bluetooth zvuk i analogni AUX rade.** V4 je imao funkcionalan Wi-Fi/BT, ali problem sa ALSA karticom i IPTV slikom. V5 NOBOOTLOADER i V5 FULL su spakovani i verifikovani offline, ali još nisu fizički flešovani ni testirani posle čistog brisanja.** U ovom repozitorijumu nema gotovih IMG fajlova niti vlasničkih ROM-ova.
+> **V4.1 je najnovija verzija stvarno testirana na jednom uređaju: IPTV slika, Wi-Fi, Bluetooth zvuk i analogni AUX rade.** V4 je imao funkcionalan Wi-Fi/BT, ali problem sa ALSA karticom i IPTV slikom. V5 NOBOOTLOADER i V5 FULL su spakovani i verifikovani offline, ali još nisu fizički flešovani ni testirani posle čistog brisanja. U ovom repozitorijumu nema gotovih IMG fajlova niti vlasničkih ROM-ova.
 
 ## Kako je sve počelo
 
@@ -125,6 +125,14 @@ py -3 scripts\build_laki_v5_full.py --packer "C:\AmlogicKitchen\bin\windows\AmlI
 ```
 
 Više detalja u [BUILD.md](docs/BUILD.md). Skripte **samo rade sa lokalnim fajlovima**; ne šalju komande uređaju i ne flešuju ga. GitHub verzija prve skripte uključuje naknadnu ispravku za kreiranje direktorijuma za verifikaciju; ta konkretna revizija još nije ponovo testirana od početka do kraja.
+
+## V5.1 FULL AUDIO — offline proveren, nije flešovan
+
+Dana 1.11.2026. uspešno je spakovana V5.1 FULL AUDIO slika sa dve proverene V4.1 audio particije (`boot.PARTITION` i `_aml_dtb.PARTITION`), uz očuvane V5 `system` i `vendor` particije i X96 FULL bootloader zapis. Slika je raspakovana i proverena po particijama, a posebno Windows SHA-256 očitavanje potvrdilo je:
+
+`B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`
+
+**V5.1 FULL AUDIO nije fizički testiran niti je potvrđen za fabrički Orion bootloader.** Nove skripte i postupak su u [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md). U GitHub repozitorijumu nema gotovog IMG fajla.
 
 ## Bezbednost i odgovornost
 

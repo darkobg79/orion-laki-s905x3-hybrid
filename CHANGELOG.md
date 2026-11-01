@@ -1,5 +1,14 @@
 # Changelog and validation record
 
+## V5.1 FULL AUDIO — built and SHA-256 verified offline (2026-11-01)
+
+- Combines the offline-verified V5 FULL X96 image with the physically tested V4.1 eARC-off `boot.PARTITION` and `_aml_dtb.PARTITION`.
+- The new public scripts independently recalculate and verify the constrained eARC patch from a **locally supplied** SHA-256-pinned DTB; no binary DTB is committed.
+- Local pack/unpack and per-partition checks passed; only two audio partitions changed; `system` and `vendor` unchanged from V5 FULL.
+- A separate `Get-FileHash` confirmed the packed-image SHA-256: `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`.
+- **NOT physically flashed, boot-tested or validated on a stock Orion bootloader.**
+- Published source is a slight packaging adaptation of the original build kit (local `--reference-dtb` input), not a new Windows end-to-end rerun.
+
 ## V5 FULL — build completed, offline only (2026-11-01)
 
 - Copied already offline-verified V5 files without changing their payloads.

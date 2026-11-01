@@ -8,7 +8,7 @@
 
 The earlier V4 hybrid enabled Unisoc UWE5621 Wi-Fi and Bluetooth, but showed `No soundcards found` in ALSA and IPTV video could freeze at the first frame after audio initialization failed. Accordingly, **V4 must not be described as fully working for IPTV/AUX sound**.
 
-The locally packed **`LAKI-Hybrid-V4.1-AUDIO-EARC-TEST.img`** addressed audio registration by disabling the incompatible eARC device-tree node and removing `aml-audio-card,dai-link@6`. Both `boot.PARTITION` and `_aml_dtb.PARTITION` were patched; the remaining DAI links and other partition payloads were preserved/checked in the local pack-and-unpack process. These V4.1 operations are **not implemented by the existing V5 build scripts**. The patch is specific to this test board and kernel; do not copy it onto unrelated hardware.
+The locally packed **`LAKI-Hybrid-V4.1-AUDIO-EARC-TEST.img`** addressed audio registration by disabling the incompatible eARC device-tree node and removing `aml-audio-card,dai-link@6`. Both `boot.PARTITION` and `_aml_dtb.PARTITION` were patched; the remaining DAI links and other partition payloads were preserved/checked in the local pack-and-unpack process. The older V5 build scripts do **not** include this V4.1 eARC patch; the new [V5.1 FULL AUDIO builder](V5_1_FULL_AUDIO.md) independently verifies and reuses the V4.1 audio partitions. The patch is specific to this test board and kernel; do not copy it onto unrelated hardware.
 
 After flashing, the card `AML-AUGESOUND` registered and IPTV video played normally. Analog AUX, Bluetooth audio, Wi-Fi and Android TV were observed working.
 

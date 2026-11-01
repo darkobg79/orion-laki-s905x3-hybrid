@@ -1,8 +1,8 @@
 # Orion LAKI M6CW4K TV Box (S905X3) — Android TV Hybrid Firmware
 
-**Technical documentation and offline V5 build tools for the Orion LAKI M6CW4K TV box (Amlogic S905X3 / AC213, Unisoc UWE5621 Wi-Fi/Bluetooth). The tools start from an already prepared V4 hybrid image.**
+**Technical documentation and offline V5 build tools for the Orion LAKI M6CW4K TV box (Amlogic S905X3 / AC213, Unisoc UWE5621 Wi-Fi/Bluetooth). The original V5 tools start from a prepared V4 image; the V5.1 builder uses local V5 FULL and V4.1 audio images.**
 
-[**Srpski / Serbian README**](README.sr.md) · [V4.1 audio validation](docs/V4_1_AUDIO.md) · [Build guide](docs/BUILD.md) · [Hardware details](docs/HARDWARE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Flashing and recovery risks](docs/FLASHING.md)
+[**Srpski / Serbian README**](README.sr.md) · [V4.1 audio validation](docs/V4_1_AUDIO.md) · [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md) · [Build guide](docs/BUILD.md) · [Hardware details](docs/HARDWARE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Flashing and recovery risks](docs/FLASHING.md)
 
 > [!IMPORTANT]
 > **V4.1 is the latest version physically tested on one box (IPTV picture, Wi-Fi, Bluetooth audio and analog AUX).** V4 had Wi-Fi/BT success but an audio-card/IPTV-video failure. V5 NOBOOTLOADER and V5 FULL have been built and their contents verified offline, **but neither V5 image has been boot-tested or clean-install tested**. These tools do not flash hardware, and no firmware images or proprietary vendor binaries are included in this repository.
@@ -149,6 +149,14 @@ py -3 scripts\build_laki_v5_full.py --packer "C:\AmlogicKitchen\bin\windows\AmlI
 The build scripts never connect to ADB, never flash a device, and are intended to leave the V4 input unchanged. The V5 finalizer in this repository includes the fix to create its verification directory before unpacking; **this revised script has not been re-run end-to-end in this environment**. The V5 files listed above were validated through the tester's completed pack/unpack and SHA-256 checks.
 
 Full instructions, checks, and errors: [docs/BUILD.md](docs/BUILD.md).
+
+## V5.1 FULL AUDIO — offline verified, not boot-tested
+
+On 2026-11-01 a new V5.1 FULL AUDIO image was built using the physical-device-tested V4.1 `boot.PARTITION` and `_aml_dtb.PARTITION` in the original V5 FULL X96 image. Only those two payloads changed; `system`, `vendor` and the FULL X96 bootloader entry remained unchanged. The packed IMG was unpacked and SHA-256 verified offline, and Windows `Get-FileHash` independently confirmed the packed-image hash:
+
+`B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`
+
+**V5.1 has NOT been flash-tested or stock-bootloader-tested.** The reproducible builder and verification guidance are in [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md); there are no prebuilt images in this repository.
 
 ## Do **not** flash based on this README alone
 

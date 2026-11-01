@@ -107,6 +107,16 @@ C:\LakiBox-Backup\LAKI-Hybrid-V5-FULL-BUILD-REPORT.json
 
 The X96 bootloader entry makes it **eligible** for programming when the burn tool requests bootloader flashing. It does not guarantee what a specific device/USB Burning Tool configuration will program.
 
+## V5.1 FULL AUDIO (published reproducible source)
+
+A separately built and offline-verified V5.1 FULL AUDIO image now exists. The original V5 scripts **still do not include the V4.1 eARC patch**; the new [V5.1 builder](../scripts/build_laki_v51_full_audio.py) merges the two audio partitions from the on-device-tested V4.1 IMG into the original V5 FULL IMG. It requires the operator to provide a local SHA-256-pinned V4 running DTB via `--reference-dtb`, because no proprietary DTB binary is published.
+
+See [V5.1 FULL AUDIO instructions](V5_1_FULL_AUDIO.md) for input fingerprints, Windows commands, output path and safety checks. The verified local V5.1 image SHA-256 is:
+
+`B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`
+
+**This image is not hardware tested.** Do not confuse packed/unpacked SHA validation with physical compatibility, particularly for a stock bootloader.
+
 ## Reference hashes
 
 ```text
