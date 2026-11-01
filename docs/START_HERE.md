@@ -4,15 +4,22 @@
 >
 > This is an **offline build guide**, **not a flashing tutorial**. No prebuilt proprietary firmware IMG or DTB files are distributed here.
 
+<!-- LAKI-V6-2026-11-01-RELEASE -->
+## Recommended: V6 from two original donor images (no intermediates)
+
+**V6.0.0 was built end-to-end, independently SHA-256 checked, and operator-reported to pass 9/9 hardware checks on one previously modified LAKI box.** See [V6 instructions](V6_ONE_STEP.md), [hardware report](V6_HARDWARE_VALIDATION_2026-11-01.md) and [release notes](V6_RELEASE_NOTES_2026-11-01.md).
+
+Download the V6 source release, obtain the two specific slimBOXtv donor ATV 9.20 IMG files separately, then use `tools/v6/RUN-V6.cmd` or `scripts/build_laki_v6.py` in Windows. The **V5.1 procedure below is historical** and still valid only for recreating V5.1. FULL has an X96 bootloader entry and is **not validated for an untouched factory Orion bootloader**.
+
 **Choose your starting point:**
 
 - **A. Just want to download and explore the project?** Follow steps 1–3.
 - **B. Already have the previously built/verified V5 FULL and V4.1 images plus the local reference DTB?** Follow steps 1–8.
-- **C. Only have a stock LAKI box or two downloaded donor ROMs?** Read [What you cannot build from scratch yet](#what-you-cannot-build-from-scratch-yet). The current scripts **cannot** make V5.1 directly from the two donor ROM downloads.
+- **C. Only have a stock LAKI box or two downloaded donor ROMs?** Read [What you cannot build from scratch yet](#what-you-cannot-build-from-scratch-yet). For V6, use the new V6 one-step guide above; legacy V5.1 cannot be built directly from only those two donors.
 
 ## 1. Check your hardware — no flashing
 
-The only documented successful hardware test is **Orion LAKI M6CW4K**, **Amlogic S905X3 / SM1**, **AC213 board**, **2 GB RAM / 16 GB storage**, **Unisoc UWE5621** Wi-Fi/Bluetooth. If ADB is *already* available, read-only checks:
+The documented hardware tests were on **Orion LAKI M6CW4K**, **Amlogic S905X3 / SM1**, **AC213 board**, **2 GB RAM / 16 GB storage**, **Unisoc UWE5621** Wi-Fi/Bluetooth. If ADB is *already* available, read-only checks:
 
 ```bat
 adb shell "cat /proc/device-tree/amlogic-dt-id"
@@ -148,7 +155,7 @@ A different top-level hash in a future build **does not automatically mean succe
 > [!CAUTION]
 > **DO NOT AUTO-FLASH THE RESULT.** FULL contains an explicit X96 `PARTITION/bootloader` manifest record. On 2026-11-01 V5.1 was successfully flashed on **one already X96-modified device**, with erase-data and erase-bootloader options selected, but a failed DDR/U-Boot write can still brick another unit. **Untouched stock Orion bootloader and other revisions remain untested; no universal safe checkbox combination exists.** Read [FLASHING.md](FLASHING.md) and [hardware validation](V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 
-## What you cannot build from scratch yet
+## Historical V5.1 build limitations (V6 does not require these intermediates)
 
 **The public repository is not a one-click two-donor-ROM-to-V5.1 solution yet.**
 

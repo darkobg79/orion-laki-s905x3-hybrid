@@ -5,6 +5,10 @@
 
 ## Evidence and limitations
 
+<!-- LAKI-V6-2026-11-01-RELEASE -->
+- The **V6.0.0 FULL AUDIO** image was built end-to-end directly from two original donor IMG files, offline pack/unpack and SHA-256 verified (independent `certutil` match), and the operator reported **9/9 physical checks PASS** on one previously modified LAKI M6CW4K. This does **not** verify factory-stock Orion bootloaders, other boards or actual bootloader readback. The image **still contains an explicit X96 `PARTITION/bootloader` record**. See [V6 physical validation](V6_HARDWARE_VALIDATION_2026-11-01.md).
+
+
 - On 2026-11-01, **V4.1** (earlier audio repair) was physically tested on the previously X96-modified box. The **separate later V5.1 FULL AUDIO** hardware test is documented below; neither test establishes behavior on an untouched stock Orion bootloader. See [V4.1 record](V4_1_AUDIO.md).
 
 - The **first physical box** was originally flashed with a compatible X96 Max Plus 5 ROM and its bootloader replacement option was enabled.

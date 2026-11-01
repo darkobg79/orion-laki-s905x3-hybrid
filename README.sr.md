@@ -1,11 +1,24 @@
 # Orion LAKI M6CW4K TV Box (S905X3) — Hibridni Android TV firmware
 
-**Tehnička dokumentacija za Orion LAKI M6CW4K TV Box (Amlogic S905X3 / AC213, Unisoc UWE5621) i offline alati za V5 i V5.1 iz lokalnih V4, V4.1 i V5 FULL slika.**
+**Tehnička dokumentacija za Orion LAKI M6CW4K, V6 izradu iz dva donatorska IMG-a i istorijske V5/V5.1 offline alate.**
 
 [English README](README.md) · [**Počni ovde — korak po korak**](docs/START_HERE.sr.md) · [**Start Here (English)**](docs/START_HERE.md) · [V4.1 audio provera](docs/V4_1_AUDIO.md) · [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md) · [Uputstvo za izradu](docs/BUILD.md) · [Hardver](docs/HARDWARE.md) · [Problemi i rešenja](docs/TROUBLESHOOTING.md) · [Rizici flešovanja](docs/FLASHING.md)
 
 > [!IMPORTANT]
-> **V5.1 FULL AUDIO je sada fizički testiran na jednom prethodno X96-modifikovanom LAKI M6CW4K (1.11.2026):** Android, Wi-Fi/internet, Bluetooth uparivanje i zvuk, IPTV slika, analogni AUX i restart rade posle flešovanja uz opcije brisanja podataka i bootloadera. **Starije zasebne V5 NOBOOTLOADER/V5 FULL slike nisu fizički testirane.** Nije potvrđena instalacija na netaknut fabrički Orion bootloader. [Zapisnik testa](docs/V5_1_HARDWARE_VALIDATION_2026-11-01.md). Gotovi IMG nisu u repozitorijumu.
+> **Najnovija V6.0.0 je prema izveštaju prošla 9/9 fizičkih provera na jednom već modifikovanom LAKI boxu; V5.1 FULL AUDIO ostaje rezervna hardverski potvrđena verzija.** Starije zasebne V5 NOBOOTLOADER/V5 FULL slike su samo offline proverene. Fabrički Orion bootloader nije testiran. [V6 zapisnik](docs/V6_HARDWARE_VALIDATION_2026-11-01.md). Gotovi IMG nisu objavljeni.
+
+<!-- LAKI-V6-2026-11-01-RELEASE -->
+## ✅ LAKI Hybrid V6.0.0 FULL AUDIO by DarkoBG — 9/9 fizičkih testova PASS
+
+**Nova izrada u jednom postupku:** X96 Max Plus 5 ATV 9.20 + Magicsee N5 Max X3 152F ATV 9.20 → **jedan V6 FULL AUDIO IMG**, bez V4/V4.1/V5/V5.1 međuslika. Sačuvane su proverene AC213 Wi-Fi/Bluetooth i eARC audio korekcije.
+
+- **Fizička potvrda 1.11.2026:** uspešno flešovanje i pokretanje na jednom Orion LAKI M6CW4K prema izveštaju operatera, uz **9/9 PASS**: Android, model i naziv, Wi-Fi/internet, Bluetooth pronalaženje/uparivanje/zvuk, IPTV bez zastajkivanja, AUX, restart i Bluetooth dozvola bez ručnog ADB odobravanja.
+- **Identitet:** `ro.product.model=m6cw4k`, `ro.product.brand=LAKI`, `ro.build.display.id=LAKI Hybrid V6 FULL AUDIO by DarkoBG`.
+- **SHA-256 IMG-a:** `ABB9B548159192D7379BEFBB2D34B45FF85DACF2A6EB4209631635AD8F079F9E` (posebno potvrđeno komandom Windows `certutil`).
+- **Dokumentacija:** [V6 uputstvo](docs/V6_ONE_STEP.sr.md) · [English guide](docs/V6_ONE_STEP.md) · [zapisnik 9/9](docs/V6_HARDWARE_VALIDATION_2026-11-01.md) · [release beleške](docs/V6_RELEASE_NOTES_2026-11-01.md).
+- **Rezervna verzija:** V5.1 FULL AUDIO ostaje prethodno hardverski proverena slika; zasebne starije V5 NOBOOTLOADER i V5 FULL slike ostaju samo offline proverene.
+
+**Ograničenje:** potvrda je sa jednog ranije modifikovanog boxa; **netaknuti fabrički Orion bootloader i druge revizije nisu testirani**. FULL sadrži X96 bootloader zapis. Gotove vlasničke IMG datoteke nisu objavljene. Vidi [rizike flešovanja](docs/FLASHING.md).
 
 ## Kako je sve počelo
 
@@ -169,7 +182,7 @@ Prvi box je već dobio X96 bootloader prilikom ranijeg flešovanja. Uspeh V4 zat
 
 **Ne uključivati naslepo `Erase flash` ili `Erase bootloader`.** Pogrešan DDR/U-Boot može sprečiti ulazak u USB Burning režim. Potreban je bekap i realan plan oporavka. Pročitaj [FLASHING.md](docs/FLASHING.md).
 
-Repozitorijum sadrži dokumentaciju, konfiguraciju i skripte za izradu V5 varijanti iz prethodno pripremljenog V4 firmware-a. Gotove IMG slike nisu uključene; izrada samog V4 za sada nije automatizovana.
+Repozitorijum sadrži V6 One-Step skripte za izradu direktno iz dva originalna donatorska IMG-a, kao i istorijske V5 alate. Gotove vlasničke IMG slike nisu uključene. Za V6 nije potrebna izrada V4/V5 međuslika.
 
 Skripte i dokumentacija dostupne su pod [MIT licencom](LICENSE). Projekat je nezavisan i namenjen eksperimentisanju, razmeni iskustava i daljem razvoju firmware-a za Orion LAKI TV Box.
 

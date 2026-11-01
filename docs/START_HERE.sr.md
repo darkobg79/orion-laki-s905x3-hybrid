@@ -4,11 +4,18 @@
 >
 > Ovaj vodič je za **preuzimanje projekta i offline izradu IMG-a**, a ne za flešovanje uređaja. Ne objavljujemo kompletne vlasničke IMG/DTB datoteke.
 
+<!-- LAKI-V6-2026-11-01-RELEASE -->
+## Preporučeno: V6 iz dva originalna donatorska IMG-a (bez međukoraka)
+
+**V6.0.0 je uspešno napravljen direktno iz dva donatorska IMG-a, nezavisno SHA-256 proveren i prema izveštaju operatera prošao 9/9 fizičkih provera na jednom ranije modifikovanom LAKI boxu.** Vidi [V6 uputstvo](V6_ONE_STEP.sr.md), [zapisnik testa](V6_HARDWARE_VALIDATION_2026-11-01.md) i [beleške o izdanju](V6_RELEASE_NOTES_2026-11-01.md).
+
+Preuzmi izvorni V6 kod, dva tačna donatorska slimBOXtv ATV 9.20 IMG-a pribavi zasebno, pa na Windows-u pokreni `tools/v6/RUN-V6.cmd` ili `scripts/build_laki_v6.py`. **V5.1 koraci ispod su istorijski postupak**, ne obavezni koraci za V6. FULL sadrži X96 bootloader, a **netaknuti Orion fabrički bootloader nije proveren**.
+
 **Izaberi put:**
 
 - **A. Želim da preuzmem projekat, vidim kod i razumem postupak** → koraci 1–3.
 - **B. Imam prethodno izrađene i proverene V4/V4.1/V5 fajlove** → koraci 1–8.
-- **C. Imam samo fabrički LAKI box ili samo dva originalna ROM-a** → pročitaj [Šta za sada ne može od nule](#šta-za-sada-ne-može-od-nule). Trenutne skripte **ne mogu** same sastaviti kompletan V4.1/V5.1 IMG iz ta dva preuzeta ROM-a.
+- **C. Imam samo fabrički LAKI box ili samo dva originalna ROM-a** → pročitaj [Šta za sada ne može od nule](#šta-za-sada-ne-može-od-nule). Za V6 koristi gornji One-Step postupak; istorijski V5.1 builder i dalje zahteva ranije međuslike.
 
 ## 1. Proveri model uređaja (bez flešovanja)
 
@@ -157,7 +164,7 @@ Ako nova izrada ima drugačiji ukupni SHA-256, **ne proglašavaj automatski da j
 > [!CAUTION]
 > **OVDE SE VODIČ ZAVRŠAVA. NE FLEŠUJ AUTOMATSKI.** FULL slika sadrži eksplicitnu X96 `PARTITION/bootloader` stavku. V5.1 jeste uspešno flešovan **na jednom već X96-modifikovanom uređaju**, uz izabrane opcije brisanja podataka i bootloadera, ali neispravna DDR/U-Boot kombinacija može onesposobiti drugi uređaj. **Fabrički netaknuti Orion bootloader i druge revizije nisu testirani; nema univerzalno sigurnih opcija flešovanja.** Pročitaj [FLASHING.md](FLASHING.md) i [hardverski zapisnik](V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 
-## Šta za sada ne može od nule
+## Ograničenja istorijskog V5.1 postupka (V6 ne zahteva međuslike)
 
 **Naš javni GitHub još nije „jedan klik od dva originalna ROM-a do V5.1“.**
 

@@ -1,5 +1,17 @@
 # Changelog and validation record
 
+<!-- LAKI-V6-2026-11-01-RELEASE -->
+## V6.0.0 FULL AUDIO by DarkoBG — one-step build, offline verified and 9/9 physical PASS (2026-11-01)
+
+- Built directly from X96 Max Plus 5 ATV 9.20 (SHA-256 `197186CE54C78E6C4D19B4DCAC7CF30BF9E6B596D1E9EF3B9F310723E30085B1`) and Magicsee N5 Max X3 152F ATV 9.20 (SHA-256 `FBA4347CBCA7BF22E700C1A455BEDBC23C02D4E8CDDEBA0060AC31FC769F5788`). **No intermediary V4/V5 IMG input**.
+- Corrected reproducible gzip encoding for AC213 Wi-Fi/BT and V4.1 eARC-off DTB patches; retained pinned boot/DTB checks. Preserved Magicsee kernel and other board DTB slots.
+- Patched Magicsee Android 9 `system.PARTITION` in a single pass: Bluetooth `READ_CONTACTS` default-permissions XML and exactly three cosmetic build properties (`m6cw4k`, `LAKI`, `LAKI Hybrid V6 FULL AUDIO by DarkoBG`). Original `build.prop` mode including `0600`, UID/GID and SELinux context retained.
+- Amlogic IMG packed, re-unpacked and component SHA-256 checked; independent Windows `certutil` hash matched the JSON report. Result `LAKI-Hybrid-V6-FULL-AUDIO-by-DarkoBG.img`, SHA-256 `ABB9B548159192D7379BEFBB2D34B45FF85DACF2A6EB4209631635AD8F079F9E`, size `1337430864` bytes.
+- **Operator-reported physical test: 9/9 PASS** on one previously modified Orion LAKI M6CW4K (Android boot, correct branding, Wi-Fi/Internet, Bluetooth pairing/audio, IPTV, AUX, restart, Bluetooth without manual ADB permission grant). See [evidence](docs/V6_HARDWARE_VALIDATION_2026-11-01.md).
+- **Not verified:** untouched Orion stock bootloader, other revisions, OTA/DRM, prolonged stability or exact bootloader readback. X96 FULL bootloader record is present. V5.1 remains a separate proven fallback; previous V5 NOBOOTLOADER and V5 FULL remain offline-only.
+- Repository release includes only scripts, test sources and documentation — no proprietary firmware IMG.
+
+
 ## V5.1 FULL AUDIO — one-device hardware validation (2026-11-01)
 
 - Operator reported a successful physical USB flash and Android boot using the locally built V5.1 FULL AUDIO image (SHA-256 `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`).

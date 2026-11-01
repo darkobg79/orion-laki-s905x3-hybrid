@@ -4,6 +4,13 @@
 
 This guide describes building firmware images locally, not flashing devices. The donor ROMs used for the hybrid are [X96 Max Plus — Plus 5](https://slimboxtv.ru/x96max-plus/) and [Magicsee N5 Max X3 — 152F](https://slimboxtv.ru/n5max-x3/), available through [slimBOXtv](https://slimboxtv.ru/). The repository contains build scripts and documentation, not prebuilt ROM images.
 
+<!-- LAKI-V6-2026-11-01-RELEASE -->
+## Current recommended build: V6 ONE-STEP
+
+The **V6.0.0** source builder constructs a single FULL AUDIO image directly from the exact X96 Plus 5 and Magicsee 152F ATV 9.20 donor IMG files, without V4/V5 intermediate images. Its specific 2026-11-01 result was offline SHA-256 checked and **reported 9/9 PASS on one previously modified LAKI device**. See [V6 guide](V6_ONE_STEP.md) and [hardware record](V6_HARDWARE_VALIDATION_2026-11-01.md).
+
+The remaining sections document the **historical V4/V5 build chain**, not the required V6 workflow. Factory-stock Orion bootloader support is **not** established.
+
 ## Starting point
 
 The V5 workflow assumes a **previously assembled, successfully tested V4** level-1 Amlogic image directory. It does **not** automatically download or construct the hybrid kernel/device tree/vendor components from scratch.

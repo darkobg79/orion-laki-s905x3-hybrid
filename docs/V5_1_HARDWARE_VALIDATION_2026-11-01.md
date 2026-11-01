@@ -36,7 +36,7 @@
 
 ## Scope of this milestone
 
-This is a significant **one-device hardware success for V5.1 FULL AUDIO**. Do not transfer its status to the **earlier distinct V5 NOBOOTLOADER** or **V5 FULL (without V4.1 audio)** image, which remain offline-only. It also does not prove the proposed **V6 one-step builder** or its eventual output has passed full donor-to-IMG and physical tests.
+This is a significant **one-device hardware success for V5.1 FULL AUDIO**. Do not transfer its status to the **earlier distinct V5 NOBOOTLOADER** or **V5 FULL (without V4.1 audio)** image, which remain offline-only. V6 later received **its own separate one-step build and 9/9 reported physical tests**; see [V6 validation](V6_HARDWARE_VALIDATION_2026-11-01.md). The V5.1 evidence alone did not establish that result.
 
 The project does not distribute proprietary prebuilt IMG/DTB blobs. Confirm redistribution rights before releasing any donor-derived firmware.
 

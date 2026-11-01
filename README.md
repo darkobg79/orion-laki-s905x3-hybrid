@@ -1,11 +1,24 @@
 # Orion LAKI M6CW4K TV Box (S905X3) — Android TV Hybrid Firmware
 
-**Technical documentation and offline V5 build tools for the Orion LAKI M6CW4K TV box (Amlogic S905X3 / AC213, Unisoc UWE5621 Wi-Fi/Bluetooth). The original V5 tools start from a prepared V4 image; the V5.1 builder uses local V5 FULL and V4.1 audio images.**
+**Technical documentation, V6 one-step builder and legacy V5 tools for the Orion LAKI M6CW4K TV box (Amlogic S905X3 / AC213, Unisoc UWE5621 Wi-Fi/Bluetooth). The original V5 tools start from a prepared V4 image; the V5.1 builder uses local V5 FULL and V4.1 audio images.**
 
 [**Srpski / Serbian README**](README.sr.md) · [**Start Here / Beginner build guide**](docs/START_HERE.md) · [**Srpski: Počni ovde**](docs/START_HERE.sr.md) · [V4.1 audio validation](docs/V4_1_AUDIO.md) · [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md) · [Build guide](docs/BUILD.md) · [Hardware details](docs/HARDWARE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Flashing and recovery risks](docs/FLASHING.md)
 
 > [!IMPORTANT]
-> **V5.1 FULL AUDIO is now hardware-tested on one previously X96-modified LAKI M6CW4K (2026-11-01): Android boot, Wi-Fi/Internet, Bluetooth pairing/audio, IPTV video, analog AUX and reboot passed after a data/bootloader-erase-option flash.** The earlier V5 NOBOOTLOADER and V5 FULL (without V4.1 audio) remain offline-only. This is **not** proof of compatibility with an untouched stock Orion bootloader. [Hardware validation record](docs/V5_1_HARDWARE_VALIDATION_2026-11-01.md). No proprietary IMG files are included here.
+> **Latest: V6.0.0 is reported hardware-tested (9/9 PASS) on one previously modified Orion LAKI; V5.1 FULL AUDIO remains a proven fallback.** Earlier V5 NOBOOTLOADER/V5 FULL were offline-only. Neither V6 nor V5.1 has established factory-stock bootloader compatibility. [V6 evidence](docs/V6_HARDWARE_VALIDATION_2026-11-01.md). No proprietary IMG is distributed.
+
+<!-- LAKI-V6-2026-11-01-RELEASE -->
+## ✅ LAKI Hybrid V6.0.0 FULL AUDIO by DarkoBG — 9/9 hardware PASS
+
+**New one-step build:** X96 Max Plus 5 ATV 9.20 + Magicsee N5 Max X3 152F ATV 9.20 → **one V6 FULL AUDIO IMG**, with **no V4/V4.1/V5/V5.1 intermediate IMG**. Uses the same previously validated AC213 Wi-Fi/Bluetooth and eARC audio corrections.
+
+- **Physical validation 2026-11-01:** one operator-reported successful flash and boot, with **9/9 functional tests PASS** on a real Orion LAKI M6CW4K. These include boot, model/build display, Wi-Fi/Internet, Bluetooth discovery/pairing/audio, IPTV without freezing, AUX audio, restart and Bluetooth permission without manual ADB grant.
+- **Build identity:** `ro.product.model=m6cw4k`, `ro.product.brand=LAKI`, `ro.build.display.id=LAKI Hybrid V6 FULL AUDIO by DarkoBG`.
+- **Known IMG SHA-256:** `ABB9B548159192D7379BEFBB2D34B45FF85DACF2A6EB4209631635AD8F079F9E` (separately checked using Windows `certutil`).
+- **Instructions and evidence:** [V6 one-step builder](docs/V6_ONE_STEP.md) · [Srpski vodič](docs/V6_ONE_STEP.sr.md) · [9/9 hardware record](docs/V6_HARDWARE_VALIDATION_2026-11-01.md) · [Release notes](docs/V6_RELEASE_NOTES_2026-11-01.md).
+- **Historical fallback:** V5.1 FULL AUDIO remains a separately verified hardware-tested version; earlier V5 NOBOOTLOADER/V5 FULL outputs are still only offline-verified.
+
+**Safety:** the tested hardware was previously modified; **factory-stock Orion bootloader and other board variants remain untested**. FULL includes an X96 bootloader entry. No proprietary prebuilt IMG or donor binaries are distributed here. See [flashing risks](docs/FLASHING.md).
 
 ## Why this exists
 
@@ -185,7 +198,7 @@ Please open an issue with the [hardware report template](.github/ISSUE_TEMPLATE/
 
 ## Distribution and licensing
 
-This repository contains documentation, configuration files, and build scripts for the LAKI Hybrid firmware project. Prebuilt firmware images are not included. The published scripts build V5 from an existing V4 hybrid image and do not create V4 from the donor ROMs.
+This repository contains documentation, configuration files, and build scripts for the LAKI Hybrid firmware project. Prebuilt firmware images are not included. V6 scripts build directly from two specific donor images; the legacy V5 scripts still start from an already prepared V4 image.
 
 The original scripts and documentation are available under the [MIT License](LICENSE). This is an independent community project focused on experimentation, knowledge sharing, and further development of firmware for the Orion LAKI TV Box.
 
