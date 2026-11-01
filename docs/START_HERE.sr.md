@@ -1,6 +1,6 @@
 # Počni ovde — LAKI Hybrid firmware (vodič korak po korak)
 
-> **Status 1. novembar 2026.** Najnoviji fizički testirani firmware je **V4.1** (IPTV slika, analogni AUX zvuk, Wi-Fi i Bluetooth na jednom već modifikovanom LAKI uređaju). **V5.1 FULL AUDIO RC1** je napravljen i SHA-256 proveren **samo offline**. Nije pokretan na uređaju, nije proveren sa fabričkim Orion bootloaderom i **nije potvrđen kao bezbedan za flešovanje**.
+> **Status 1. novembar 2026.** **V5.1 FULL AUDIO RC1** prošao je offline SHA-256 provere, a zatim je **uspešno flešovan i funkcionalno proveren na jednom već X96-modifikovanom LAKI M6CW4K**. Rade Wi-Fi/internet, Bluetooth uparivanje i zvuk, IPTV, AUX i restart. **Netaknuti fabrički Orion bootloader i druge revizije nisu testirani.** [Zapisnik](V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 >
 > Ovaj vodič je za **preuzimanje projekta i offline izradu IMG-a**, a ne za flešovanje uređaja. Ne objavljujemo kompletne vlasničke IMG/DTB datoteke.
 
@@ -155,7 +155,7 @@ B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378
 Ako nova izrada ima drugačiji ukupni SHA-256, **ne proglašavaj automatski da je dobra ili loša**: uporedi poreklo i JSON izveštaj; pakovanje može promeniti bajtove čak i kad je sadržaj particija isti. Sam uspešan pack/unpack **ne** dokazuje da će uređaj bootovati.
 
 > [!CAUTION]
-> **OVDE SE VODIČ ZAVRŠAVA. NE FLEŠUJ AUTOMATSKI.** FULL slika sadrži eksplicitnu **X96 `PARTITION/bootloader`** stavku. U slučaju pogrešne DDR/U-Boot kompatibilnosti uređaj može ostati neupotrebljiv. Testirani V4.1 uređaj je već prethodno dobio X96 bootloader, a V5.1 **nije testiran na uređaju niti na fabričkom Orion bootloaderu**. Nemamo opšte bezbedne postavke za `Erase flash` / `Erase bootloader` / `Overwrite key`. Pre bilo kakve hardverske operacije pročitaj [FLASHING.md](FLASHING.md).
+> **OVDE SE VODIČ ZAVRŠAVA. NE FLEŠUJ AUTOMATSKI.** FULL slika sadrži eksplicitnu X96 `PARTITION/bootloader` stavku. V5.1 jeste uspešno flešovan **na jednom već X96-modifikovanom uređaju**, uz izabrane opcije brisanja podataka i bootloadera, ali neispravna DDR/U-Boot kombinacija može onesposobiti drugi uređaj. **Fabrički netaknuti Orion bootloader i druge revizije nisu testirani; nema univerzalno sigurnih opcija flešovanja.** Pročitaj [FLASHING.md](FLASHING.md) i [hardverski zapisnik](V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 
 ## Šta za sada ne može od nule
 

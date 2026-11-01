@@ -1,6 +1,6 @@
 # Offline V5 build from an existing V4 image (Windows + WSL 2)
 
-> **V4.1 note (2026-11-01):** V4.1 is the latest **physically validated** image for IPTV video and analog audio on one device. The V4.1 eARC/device-tree fix is **not incorporated** into these pre-existing V5 scripts, which still start from the earlier V4 baseline. The two V5 outputs are offline-only verified; do not mistake them for a tested successor. See [V4.1 diagnostic record](V4_1_AUDIO.md).
+> **Historical V4/V5 build note (2026-11-01):** these older V5 builder scripts start from V4 and do **not** contain the V4.1 audio patch. Their **distinct V5 outputs** are offline-only. A separately built **V5.1 FULL AUDIO** was subsequently successfully flashed and functionally tested on one previously modified box; see [physical validation](V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 
 This guide describes building firmware images locally, not flashing devices. The donor ROMs used for the hybrid are [X96 Max Plus — Plus 5](https://slimboxtv.ru/x96max-plus/) and [Magicsee N5 Max X3 — 152F](https://slimboxtv.ru/n5max-x3/), available through [slimBOXtv](https://slimboxtv.ru/). The repository contains build scripts and documentation, not prebuilt ROM images.
 
@@ -115,7 +115,7 @@ See [V5.1 FULL AUDIO instructions](V5_1_FULL_AUDIO.md) for input fingerprints, W
 
 `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`
 
-**This image is not hardware tested.** Do not confuse packed/unpacked SHA validation with physical compatibility, particularly for a stock bootloader.
+**The specific V5.1 FULL AUDIO image was subsequently physically flashed and functionally tested on one previously X96-modified LAKI device.** See [hardware record](V5_1_HARDWARE_VALIDATION_2026-11-01.md). Its success does not validate a stock Orion bootloader or the earlier separate V5 outputs, and pack/unpack checks alone never prove compatibility.
 
 ## Reference hashes
 

@@ -5,16 +5,16 @@
 
 ## Evidence and limitations
 
-- On 2026-11-01, **V4.1** (locally repacked eARC/DTB audio correction) was physically flashed and tested on the same previously modified box. IPTV video and AUX audio worked. This does **not** validate clean flashing from a stock bootloader, and **does not** validate any V5 image. See [V4.1 evidence](V4_1_AUDIO.md).
+- On 2026-11-01, **V4.1** (earlier audio repair) was physically tested on the previously X96-modified box. The **separate later V5.1 FULL AUDIO** hardware test is documented below; neither test establishes behavior on an untouched stock Orion bootloader. See [V4.1 record](V4_1_AUDIO.md).
 
 - The **first physical box** was originally flashed with a compatible X96 Max Plus 5 ROM and its bootloader replacement option was enabled.
 - Later the **V4 hybrid** (without an explicit `PARTITION/bootloader` entry) flashed successfully, booted, and passed Wi-Fi and Bluetooth audio tests.
 - The original Magicsee ROM failed early with `DiskInitial` at ~7%.
 - V5 NOBOOTLOADER and V5 FULL were **never physically flashed** during the documented work.
-- The **V5.1 FULL AUDIO** image was built on 2026-11-01 and verified offline (including a separate image SHA-256 read). It **has not been physically flashed**. Its FULL manifest retains the explicit X96 `PARTITION/bootloader` entry. See [V5.1 build notes](V5_1_FULL_AUDIO.md).
+- The **V5.1 FULL AUDIO** image was packed/verified offline and **then successfully flashed and booted on that same previously modified box on 2026-11-01**. The operator selected data-erase and bootloader-erase options and confirmed Wi-Fi/Internet, Bluetooth discovery/pairing and audio, IPTV video without freezing, analog AUX and reboot. The FULL manifest retains an explicit X96 `PARTITION/bootloader` entry. Selecting an erase option is **not proof of the exact bootloader bytes written**. See [hardware validation](V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 - The second, stock box was **not yet hardware-verified or tested**.
 
-Thus V4 working on the first box is **not evidence that the second stock box will accept V5 FULL in a single flash**.
+**Scope:** the earlier V5 NOBOOTLOADER/V5 FULL images remain offline-only, and the V5.1 FULL AUDIO hardware success was on an already modified device. This is **not evidence** that an untouched stock second LAKI box or another board revision will accept a FULL flash. Do not generalize the selected erase options to other hardware.
 
 ## NOBOOTLOADER is not a universal safety guarantee
 

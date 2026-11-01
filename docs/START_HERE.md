@@ -1,6 +1,6 @@
 # Start here — LAKI Hybrid firmware (step-by-step)
 
-> **Status: November 1, 2026.** The most recent **hardware-tested** image is **V4.1** (IPTV video, analog AUX, Wi-Fi and Bluetooth worked on one *previously modified* LAKI device). **V5.1 FULL AUDIO RC1** was packed, unpacked and SHA-256-verified **offline only**. It has not been boot-tested or validated with an untouched Orion bootloader.
+> **Status: November 1, 2026.** **V5.1 FULL AUDIO RC1** was independently SHA-256-verified and subsequently **physically flashed, booted and functionally tested on one previously X96-modified LAKI M6CW4K**. Wi-Fi/Internet, Bluetooth pairing/audio, IPTV video, AUX and reboot passed. **Not tested on an untouched factory Orion bootloader or other revisions.** [Evidence](V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 >
 > This is an **offline build guide**, **not a flashing tutorial**. No prebuilt proprietary firmware IMG or DTB files are distributed here.
 
@@ -146,7 +146,7 @@ B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378
 A different top-level hash in a future build **does not automatically mean success or failure**: inspect provenance and the per-partition JSON report, as packaging may differ. Successful pack/unpack does **not** prove hardware functionality.
 
 > [!CAUTION]
-> **DO NOT AUTO-FLASH THE RESULT.** FULL contains an explicit **X96 `PARTITION/bootloader`** manifest record. Incorrect DDR/U-Boot initialization can render devices unbootable. The V4.1 test box had already received an X96 bootloader; V5.1 was **not hardware-tested**, especially not on an untouched factory Orion unit. No universally safe `Erase flash` / `Erase bootloader` / `Overwrite key` setting has been validated. Read [FLASHING.md](FLASHING.md) before considering any hardware operation.
+> **DO NOT AUTO-FLASH THE RESULT.** FULL contains an explicit X96 `PARTITION/bootloader` manifest record. On 2026-11-01 V5.1 was successfully flashed on **one already X96-modified device**, with erase-data and erase-bootloader options selected, but a failed DDR/U-Boot write can still brick another unit. **Untouched stock Orion bootloader and other revisions remain untested; no universal safe checkbox combination exists.** Read [FLASHING.md](FLASHING.md) and [hardware validation](V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 
 ## What you cannot build from scratch yet
 

@@ -1,12 +1,22 @@
 # Changelog and validation record
 
+## V5.1 FULL AUDIO — one-device hardware validation (2026-11-01)
+
+- Operator reported a successful physical USB flash and Android boot using the locally built V5.1 FULL AUDIO image (SHA-256 `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`).
+- Flash options reportedly included **erase user data and erase bootloader**; option selection is not an independent bootloader readback.
+- **PASS:** Wi-Fi and Internet, Bluetooth discovery/pairing, Bluetooth audio, IPTV video without freezing, analog AUX audio and normal reboot.
+- Hardware: **one previously X96-modified Orion LAKI M6CW4K (S905X3/AC213)**; untouched stock bootloader, other revisions and long-term stability not verified.
+- Bluetooth permission auto-grant mechanism not independently inspected; only functional pairing/audio were confirmed.
+- The earlier, different V5 NOBOOTLOADER and V5 FULL images remain **offline-only**, as does the proposed V6 builder until independently built/tested.
+- See [full hardware-validation record](docs/V5_1_HARDWARE_VALIDATION_2026-11-01.md).
+
 ## V5.1 FULL AUDIO — built and SHA-256 verified offline (2026-11-01)
 
 - Combines the offline-verified V5 FULL X96 image with the physically tested V4.1 eARC-off `boot.PARTITION` and `_aml_dtb.PARTITION`.
 - The new public scripts independently recalculate and verify the constrained eARC patch from a **locally supplied** SHA-256-pinned DTB; no binary DTB is committed.
 - Local pack/unpack and per-partition checks passed; only two audio partitions changed; `system` and `vendor` unchanged from V5 FULL.
 - A separate `Get-FileHash` confirmed the packed-image SHA-256: `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`.
-- **NOT physically flashed, boot-tested or validated on a stock Orion bootloader.**
+- **Historical status at the moment of offline build; superseded by the separate V5.1 physical test reported above.** Stock-Orion-bootloader compatibility is still unverified.
 - Published source is a slight packaging adaptation of the original build kit (local `--reference-dtb` input), not a new Windows end-to-end rerun.
 
 ## V5 FULL — build completed, offline only (2026-11-01)

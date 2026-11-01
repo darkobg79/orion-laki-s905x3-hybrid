@@ -5,7 +5,7 @@
 [**Srpski / Serbian README**](README.sr.md) · [**Start Here / Beginner build guide**](docs/START_HERE.md) · [**Srpski: Počni ovde**](docs/START_HERE.sr.md) · [V4.1 audio validation](docs/V4_1_AUDIO.md) · [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md) · [Build guide](docs/BUILD.md) · [Hardware details](docs/HARDWARE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Flashing and recovery risks](docs/FLASHING.md)
 
 > [!IMPORTANT]
-> **V4.1 is the latest version physically tested on one box (IPTV picture, Wi-Fi, Bluetooth audio and analog AUX).** V4 had Wi-Fi/BT success but an audio-card/IPTV-video failure. V5 NOBOOTLOADER and V5 FULL have been built and their contents verified offline, **but neither V5 image has been boot-tested or clean-install tested**. These tools do not flash hardware, and no firmware images or proprietary vendor binaries are included in this repository.
+> **V5.1 FULL AUDIO is now hardware-tested on one previously X96-modified LAKI M6CW4K (2026-11-01): Android boot, Wi-Fi/Internet, Bluetooth pairing/audio, IPTV video, analog AUX and reboot passed after a data/bootloader-erase-option flash.** The earlier V5 NOBOOTLOADER and V5 FULL (without V4.1 audio) remain offline-only. This is **not** proof of compatibility with an untouched stock Orion bootloader. [Hardware validation record](docs/V5_1_HARDWARE_VALIDATION_2026-11-01.md). No proprietary IMG files are included here.
 
 ## Why this exists
 
@@ -32,8 +32,9 @@ The donor firmware was selected from the **slimBOXtv 9.20 ATV** releases for the
 | `LAKI-Hybrid-V4.1-AUDIO-EARC-TEST.img` | **Physically flashed on one box:** IPTV video and AUX audio work; Bluetooth audio and Wi-Fi work. V4.1 packed IMG hash not published. |
 | `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | Packed and SHA-256 verified offline; **not flash-tested** |
 | `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | Packed and SHA-256 verified offline; **not flash-tested** |
+| `LAKI-Hybrid-V5.1-FULL-X96-AUDIO-V4.1-UNTESTED.img` | **Hardware flash and six functional checks passed on one previously modified box (2026-11-01); historical filename preserved.** |
 
-These three names identify local build outputs, **not downloadable ROMs in this repository**. The V5 scripts require an already prepared V4 image; they do not construct V4 from the donor firmware automatically.
+These filenames identify local build outputs, **not downloadable ROMs in this repository**. The V5 scripts require an already prepared V4 image; they do not construct V4 from the donor firmware automatically.
 
 ## Tested hardware
 
@@ -54,9 +55,11 @@ These three names identify local build outputs, **not downloadable ROMs in this 
 
 V4 registered no ALSA sound card, and IPTV video could freeze after audio initialization failed. The **V4.1 eARC/DAI-link adjustment** restored the `AML-AUGESOUND` sound card and normal IPTV picture. Direct playback through TDM-B/T9015 produced an audible analog AV/AUX tone; Android IPTV audio also became audible after raising **STREAM_MUSIC from 17/65** (50/65 and 55/65 were tested). No GPIO inversion or HAL binary modification was required. An ONTEN HDMI switch changed HPD/video mode, but AUX loudness became equal when Android media volume was fixed at 50/65 in both positions. **Do not infer that HPD itself changed gain.** Full evidence and safe ADB tests: [V4.1 audio validation](docs/V4_1_AUDIO.md).
 
-The V4.1 image was repacked/checked locally and physically tested, but its complete IMG SHA-256 has **not** been recorded in this repository. Existing V5 build scripts still start from the earlier V4 and **do not include the V4.1 audio fix**. The V5 images remain **offline-only validated**.
+The V4.1 image was repacked/checked locally and physically tested, but its complete IMG SHA-256 has **not** been recorded in this repository. Existing V5 build scripts still start from the earlier V4 and **do not include the V4.1 audio fix**. The *earlier* V5 images remain **offline-only validated**; V5.1 FULL AUDIO was subsequently tested on hardware.
 
 ## What has actually been confirmed?
+
+**Update:** the comparison below is historical and refers to the distinct *earlier V5* images, not V5.1. The [V5.1 hardware result](docs/V5_1_HARDWARE_VALIDATION_2026-11-01.md) separately confirms boot, Wi-Fi, Bluetooth pairing/audio, IPTV, AUX and reboot on one modified box.
 
 | Capability | V4 on physical box | V5 NOBOOTLOADER | V5 FULL |
 | --- | --- | --- | --- |
@@ -91,7 +94,7 @@ adb shell "dumpsys bluetooth_manager | head -n 7"
 
 Afterwards the adapter remained `ON`, discovered nearby Bluetooth devices, paired with a Xiaomi Desktop Speaker, and played sound. This is a **device/ROM-specific diagnosis**, not a universal cure for Bluetooth failures.
 
-V5 adds an Android 9 default-permission XML to the system partition, intending to grant the same permission on a clean installation. **Whether that happens reliably on the physical box after a full erase/factory reset remains untested.**
+V5 adds an Android 9 default-permission XML for `READ_CONTACTS`. Following the V5.1 data-wipe flash, Bluetooth discovery, pairing and audio worked, but the **automatic grant mechanism itself** has not been separately verified with permission dumps/no-manual-grant evidence.
 
 ## Hybrid architecture
 
@@ -120,6 +123,7 @@ These are **checksums of files built on the tester's Windows PC**, not files hos
 | V4 `LAKI-Hybrid-V4-NOBOOTLOADER-UNTESTED.img` | `D22AB3AAFBE71C9201360BA15762952C3CD94C0D14BE788AD8EE8B4D3FF200BF` | **Actually flashed and confirmed working**; historical filename says `UNTESTED` |
 | V5 `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | `900DCEF88826BEC6F77516788B5612022C338515E945E309CC41EDCE1631CD4B` | Offline pack/unpack + partition hash validation only |
 | V5 FULL `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | `AE80E1F705952FB04C3B21C7F4F2E57486FA45E0B2105282CDF70DCDC6D790F9` | Offline pack/unpack + partition hash validation only |
+| V5.1 FULL AUDIO `LAKI-Hybrid-V5.1-FULL-X96-AUDIO-V4.1-UNTESTED.img` | `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378` | **Hardware tested on one previously modified box**, 2026-11-01 |
 
 See [checksums and build provenance](docs/BUILD.md#reference-hashes) for the original X96 DDR/U-Boot fingerprints. **A matching hash proves identity, not compatibility with another board.**
 
@@ -150,13 +154,13 @@ The build scripts never connect to ADB, never flash a device, and are intended t
 
 Full instructions, checks, and errors: [docs/BUILD.md](docs/BUILD.md).
 
-## V5.1 FULL AUDIO — offline verified, not boot-tested
+## V5.1 FULL AUDIO — offline verified and hardware-tested on one device
 
 On 2026-11-01 a new V5.1 FULL AUDIO image was built using the physical-device-tested V4.1 `boot.PARTITION` and `_aml_dtb.PARTITION` in the original V5 FULL X96 image. Only those two payloads changed; `system`, `vendor` and the FULL X96 bootloader entry remained unchanged. The packed IMG was unpacked and SHA-256 verified offline, and Windows `Get-FileHash` independently confirmed the packed-image hash:
 
 `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378`
 
-**V5.1 has NOT been flash-tested or stock-bootloader-tested.** The reproducible builder and verification guidance are in [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md); there are no prebuilt images in this repository.
+**V5.1 was successfully flashed and booted on one previously X96-modified LAKI M6CW4K**, with Wi-Fi/Internet, Bluetooth pairing and audio, IPTV, AUX and reboot confirmed. The flash was reported with data- and bootloader-erase options. **Untouched stock Orion bootloader compatibility remains unverified.** See [hardware-test record](docs/V5_1_HARDWARE_VALIDATION_2026-11-01.md) and [build details](docs/V5_1_FULL_AUDIO.md); there are no prebuilt IMG files in the repository.
 
 ## Do **not** flash based on this README alone
 

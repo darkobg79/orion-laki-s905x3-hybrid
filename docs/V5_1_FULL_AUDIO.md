@@ -1,12 +1,12 @@
-# LAKI Hybrid V5.1 FULL AUDIO — offline build and verification
+# LAKI Hybrid V5.1 FULL AUDIO — offline build and physical validation
 
-**Status (2026-11-01): PACKED AND OFFLINE VERIFIED; NOT FLASH-TESTED.**
+**Status (2026-11-01): PACKED/OFFLINE VERIFIED AND SUCCESSFULLY FLASHED/BOOTED ON ONE PREVIOUSLY MODIFIED LAKI DEVICE.** See [physical test record](V5_1_HARDWARE_VALIDATION_2026-11-01.md); untouched stock bootloader compatibility remains unverified.
 
 The V5.1 FULL AUDIO image combines the previously offline-verified **V5 FULL X96 BOOTLOADER** image with the two tested audio partitions from the physically booted **V4.1 AUDIO EARC OFF** image. It preserves the V5 Android `system` partition (including the intended Bluetooth `READ_CONTACTS` default-permission change), `vendor` and the X96 FULL bootloader manifest.
 
 | Locally built artifact | SHA-256 | Validation |
 | --- | --- | --- |
-| `LAKI-Hybrid-V5.1-FULL-X96-AUDIO-V4.1-UNTESTED.img` | `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378` | Pack, unpack, per-partition comparison, and separate `Get-FileHash` reading passed on 2026-11-01; **not booted** |
+| `LAKI-Hybrid-V5.1-FULL-X96-AUDIO-V4.1-UNTESTED.img` | `B4D2CD269AB8516F123111DB5A234317A258C3D3835AA945EF7A6CED04D8A378` | Pack, unpack, per-partition comparison, and separate `Get-FileHash` reading passed on 2026-11-01; **physically flashed and booted on one previously modified box; functional checks passed** |
 
 The file was built locally in `C:\LakiBox-Backup\LAKI-V5.1-FULL-AUDIO-BUILD\`, **not** uploaded to this repo. The result hash is specific to this build, not a guarantee of compatibility with other hardware. The corresponding JSON report is `LAKI-V5.1-FULL-AUDIO-BUILD-REPORT.json` in the local build directory. The earlier build was performed using the original offline kit before the source-publication change described below; these published scripts have been syntax/unit tested, but not rerun end-to-end on the Windows machine against its original large IMG inputs.
 
@@ -56,7 +56,7 @@ These tests check manifest safety, expected payload differences, hash refusal be
 ## Safety limitations
 
 - **V4.1** was tested on one already modified LAKI M6CW4K and had functional IPTV video and analog AUX sound at an adequate Android `STREAM_MUSIC` volume. See [V4.1 audio notes](V4_1_AUDIO.md).
-- **V5.1 FULL AUDIO has never been boot-tested or clean-flash-tested**. Its Bluetooth first-boot permission handling is also unverified on a clean device.
+- **V5.1 FULL AUDIO was physically flashed and functionally tested on one previously X96-modified LAKI M6CW4K on 2026-11-01**, including data/bootloader erase options. Wi-Fi/Internet, Bluetooth pairing/audio, IPTV, analog AUX and reboot passed. This does **not** establish compatibility with untouched stock Orion bootloaders or demonstrate the exact on-device bootloader bytes without readback. The Bluetooth permission auto-grant itself has not been separately inspected. See [evidence and limitations](V5_1_HARDWARE_VALIDATION_2026-11-01.md).
 - This **FULL** image contains an explicit X96 `PARTITION/bootloader` manifest entry. An early bootloader/DDR mismatch can brick an untouched Orion LAKI or other board revision; the successful V4.1 box already had an X96 bootloader. Read [flashing risks](FLASHING.md).
 - The scripts never flash a device, grant Android permissions, or overwrite the input images. They only work on files on the operator's computer.
 - Do not redistribute the prebuilt IMG or proprietary DTB/kernel/vendor/bootloader blobs without checking the rights for each component. The repo provides only our original scripts and documentation.
