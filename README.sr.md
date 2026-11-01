@@ -18,6 +18,27 @@ Orion LAKI Box (S905X3, 2 GB RAM, 16 GB memorije) ima **Unisoc UWE5621** modul. 
 
 V4 je uspešno flešovan (`[0x00000000] Burning successfully`), Android se pokrenuo, **Wi-Fi se povezao na mrežu**, a **Bluetooth je pronašao, upario i reprodukovao zvuk na Xiaomi Desktop Speaker-u**.
 
+## Nazivi originalnih ROM-ova (IMG)
+
+Ovo su tacni nazivi SlimBOXtv ATV 9.20 firmware fajlova koje sam koristio:
+
+| Uredjaj / ROM | IMG fajl | Namena |
+| --- | --- | --- |
+| X96 Max Plus 5 | `sbx_x96max_plus_5_atv_9_20.img` | Funkcionalan DDR / U-Boot |
+| Magicsee N5 Max X3 152F | `sbx_n5max_x3_152f_atv_9_20.img` | Kernel, Android sistem i Unisoc Wi-Fi/Bluetooth drajveri |
+
+X96 ROM se pokretao, ali Wi-Fi i Bluetooth nisu radili. Magicsee ROM je imao potrebne komponente, ali je direktno flesovanje pucalo na oko 7% (`DiskInitial error`).
+
+### Nazivi hibridnih IMG fajlova
+
+| IMG fajl | Status |
+| --- | --- |
+| `LAKI-Hybrid-V4-NOBOOTLOADER-UNTESTED.img` | Fizicki testiran: Android, Wi-Fi i Bluetooth zvuk rade |
+| `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | Offline proveren; nije fizicki testiran |
+| `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | Offline proveren; nije fizicki testiran |
+
+Nazivi su navedeni radi lakseg pronalazenja i identifikacije ROM-ova. IMG fajlovi nisu postavljeni u repozitorijum. Pre flesovanja proveriti kompatibilnost hardvera.
+
 ## Potvrđeni hardver
 
 | Komponenta | Vrednost |

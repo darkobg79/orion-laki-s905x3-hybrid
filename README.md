@@ -13,6 +13,27 @@ The Orion LAKI TV box can boot some Amlogic S905X3 Android TV ROMs, but many of 
 
 A hybrid image using the working X96 USB DDR/U-Boot components, an AC213-adjusted device tree, and the Magicsee kernel/system/vendor/Unisoc stack successfully flashed and booted.
 
+## Firmware image filenames
+
+These are the exact filenames of the SlimBOXtv ATV 9.20 donor images used during development:
+
+| Device / ROM | IMG filename | Purpose |
+| --- | --- | --- |
+| X96 Max Plus 5 | `sbx_x96max_plus_5_atv_9_20.img` | Working DDR / U-Boot initialization |
+| Magicsee N5 Max X3 152F | `sbx_n5max_x3_152f_atv_9_20.img` | Kernel, Android system and Unisoc Wi-Fi/Bluetooth components |
+
+The X96 ROM booted but lacked working Wi-Fi/Bluetooth. The Magicsee ROM contained compatible wireless components but failed direct flashing at approximately 7% (`DiskInitial error`).
+
+### Hybrid output images
+
+| IMG filename | Validation status |
+| --- | --- |
+| `LAKI-Hybrid-V4-NOBOOTLOADER-UNTESTED.img` | Physically tested: boot, Wi-Fi and Bluetooth audio working |
+| `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | Offline verified; not flash-tested |
+| `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | Offline verified; not flash-tested |
+
+Filenames are provided for identification and research. The IMG files are not hosted in this repository. Verify hardware compatibility before flashing.
+
 ## Tested hardware
 
 | Item | Observed configuration |
