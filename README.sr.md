@@ -2,7 +2,7 @@
 
 **Tehnička dokumentacija za Orion LAKI M6CW4K TV Box (Amlogic S905X3 / AC213, Unisoc UWE5621) i offline alati za V5 i V5.1 iz lokalnih V4, V4.1 i V5 FULL slika.**
 
-[English README](README.md) · [V4.1 audio provera](docs/V4_1_AUDIO.md) · [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md) · [Uputstvo za izradu](docs/BUILD.md) · [Hardver](docs/HARDWARE.md) · [Problemi i rešenja](docs/TROUBLESHOOTING.md) · [Rizici flešovanja](docs/FLASHING.md)
+[English README](README.md) · [**Počni ovde — korak po korak**](docs/START_HERE.sr.md) · [**Start Here (English)**](docs/START_HERE.md) · [V4.1 audio provera](docs/V4_1_AUDIO.md) · [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md) · [Uputstvo za izradu](docs/BUILD.md) · [Hardver](docs/HARDWARE.md) · [Problemi i rešenja](docs/TROUBLESHOOTING.md) · [Rizici flešovanja](docs/FLASHING.md)
 
 > [!IMPORTANT]
 > **V4.1 je najnovija verzija stvarno testirana na jednom uređaju: IPTV slika, Wi-Fi, Bluetooth zvuk i analogni AUX rade.** V4 je imao funkcionalan Wi-Fi/BT, ali problem sa ALSA karticom i IPTV slikom. V5 NOBOOTLOADER i V5 FULL su spakovani i verifikovani offline, ali još nisu fizički flešovani ni testirani posle čistog brisanja. U ovom repozitorijumu nema gotovih IMG fajlova niti vlasničkih ROM-ova.

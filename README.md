@@ -2,7 +2,7 @@
 
 **Technical documentation and offline V5 build tools for the Orion LAKI M6CW4K TV box (Amlogic S905X3 / AC213, Unisoc UWE5621 Wi-Fi/Bluetooth). The original V5 tools start from a prepared V4 image; the V5.1 builder uses local V5 FULL and V4.1 audio images.**
 
-[**Srpski / Serbian README**](README.sr.md) · [V4.1 audio validation](docs/V4_1_AUDIO.md) · [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md) · [Build guide](docs/BUILD.md) · [Hardware details](docs/HARDWARE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Flashing and recovery risks](docs/FLASHING.md)
+[**Srpski / Serbian README**](README.sr.md) · [**Start Here / Beginner build guide**](docs/START_HERE.md) · [**Srpski: Počni ovde**](docs/START_HERE.sr.md) · [V4.1 audio validation](docs/V4_1_AUDIO.md) · [V5.1 FULL AUDIO](docs/V5_1_FULL_AUDIO.md) · [Build guide](docs/BUILD.md) · [Hardware details](docs/HARDWARE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Flashing and recovery risks](docs/FLASHING.md)
 
 > [!IMPORTANT]
 > **V4.1 is the latest version physically tested on one box (IPTV picture, Wi-Fi, Bluetooth audio and analog AUX).** V4 had Wi-Fi/BT success but an audio-card/IPTV-video failure. V5 NOBOOTLOADER and V5 FULL have been built and their contents verified offline, **but neither V5 image has been boot-tested or clean-install tested**. These tools do not flash hardware, and no firmware images or proprietary vendor binaries are included in this repository.
