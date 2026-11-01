@@ -1,4 +1,4 @@
-# Orion LAKI TV Box (S905X3) — Android TV hybrid firmware
+# Orion LAKI M6CW4K TV Box (S905X3) — Android TV Hybrid Firmware
 
 **Community research and reproducible offline build tools for the Orion LAKI TV box, based on Amlogic S905X3 / AC213 and the Unisoc UWE5621 Wi-Fi/Bluetooth chipset.**
 

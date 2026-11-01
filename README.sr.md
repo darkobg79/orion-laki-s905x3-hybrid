@@ -1,4 +1,4 @@
-# Orion LAKI TV Box (S905X3) — hibridni Android TV firmware
+# Orion LAKI M6CW4K TV Box (S905X3) — Hibridni Android TV firmware
 
 **Dokumentacija i alati za pravljenje hibridnog ROM-a za Orion LAKI TV Box sa Amlogic S905X3 / AC213 pločom i Unisoc UWE5621 Wi-Fi/Bluetooth modulom.**
 
