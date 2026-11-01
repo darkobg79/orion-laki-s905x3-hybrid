@@ -40,7 +40,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-@'
 
 # Local secrets and credentials
 .env
@@ -52,4 +51,3 @@ Thumbs.db
 *.keystore
 id_rsa*
 id_ed25519*
-'@ | Add-Content .gitignore

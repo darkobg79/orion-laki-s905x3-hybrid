@@ -19,7 +19,7 @@ STAGE = BASE / "LakiHybrid-V5-FINAL"
 FINAL_IMG = BASE / "LAKI-Hybrid-V5-FINAL-WiFi-BT.img"
 CHECK = BASE / "LakiHybrid-V5-FINAL-VERIFY"
 WORK = BASE / "LakiHybrid-V5-FINAL-WORK"
-SYSTEM_PARTITION_LIMIT = 1_342_177_280  # measured on LAKI hardware: 1280 MiB
+SYSTEM_PARTITION_LIMIT = 1_342_177_280  # known V4 raw ext4 image size (1280 MiB); not a hardware measurement
 KIT = Path(__file__).resolve().parent
 
 
@@ -79,10 +79,23 @@ def find_packer(explicit: Path | None) -> Path:
 
 
 def forbid_bootloader_in_listverify(cfg: str) -> None:
-    # Reject inadvertent restoration of the known bootloader verification/flash entry.
-    if re.search(r'(?im)^\s*\[LIST_VERIFY\]\s+[^\r\n]*sub_type\s*=\s*["\']?bootloader', cfg):
-        abort("Found bootloader [LIST_VERIFY] entry! Refusing to create purported NOBOOTLOADER final ROM.")
+    """Reject PARTITION/bootloader entries in the actual [LIST_VERIFY] section.
 
+    AmlImagePack manifest entries are single-line key/value records. Scan the
+    section rather than expecting the header and entry on the same line.
+    """
+    section = ""
+    for line in cfg.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("[") and stripped.endswith("]"):
+            section = stripped.upper()
+            continue
+        if section != "[LIST_VERIFY]":
+            continue
+        is_partition = re.search(r'\bmain_type\s*=\s*"?PARTITION\b', line, flags=re.I)
+        is_bootloader = re.search(r'\bsub_type\s*=\s*"?bootloader\b', line, flags=re.I)
+        if is_partition and is_bootloader:
+            abort("Found PARTITION/bootloader entry in [LIST_VERIFY]; refusing NOBOOTLOADER output.")
 
 def verify_images(src: Path, dst: Path, *, omit_system: bool, verify_cfg: bool = True) -> dict[str, str]:
     verified = {}

@@ -26,5 +26,5 @@
 
 ## Known limitations and risks
 
-## Distribution rights
-Only attach binaries you are authorized to redistribute. The packaging scripts do not grant redistribution rights to upstream ROMs, bootloader code, or operator assets.
+## Upstream firmware references
+Link to the original donor firmware release pages. Do not attach third-party ROM components as part of this project's release without the relevant permission.

@@ -8,7 +8,7 @@
 - Hybrid device-tree ID: `sm1_ac213_2g`.
 - Unisoc UWE5621 combo SDIO Wi-Fi and Bluetooth radio.
 - On V4: Linux 4.9.113, tested on Android 9 / ATV user space.
-- Tested over Ethernet and 2.4/5 GHz Wi-Fi network discovery/association (exact band of the connected AP not established).
+- Ethernet worked, and Wi-Fi successfully associated with an access point. The connected Wi-Fi band was not independently recorded.
 
 ## Read-only identification via ADB
 

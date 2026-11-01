@@ -1,6 +1,6 @@
 # Orion LAKI M6CW4K TV Box (S905X3) — Hibridni Android TV firmware
 
-**Dokumentacija i alati za pravljenje hibridnog ROM-a za Orion LAKI TV Box sa Amlogic S905X3 / AC213 pločom i Unisoc UWE5621 Wi-Fi/Bluetooth modulom.**
+**Tehnička dokumentacija za Orion LAKI M6CW4K TV Box (Amlogic S905X3 / AC213, Unisoc UWE5621) i alati za izradu V5 firmware-a iz prethodno pripremljene V4 slike.**
 
 [English README](README.md) · [Uputstvo za izradu](docs/BUILD.md) · [Hardver](docs/HARDWARE.md) · [Problemi i rešenja](docs/TROUBLESHOOTING.md) · [Rizici flešovanja](docs/FLASHING.md)
 
@@ -18,30 +18,26 @@ Orion LAKI Box (S905X3, 2 GB RAM, 16 GB memorije) ima **Unisoc UWE5621** modul. 
 
 V4 je uspešno flešovan (`[0x00000000] Burning successfully`), Android se pokrenuo, **Wi-Fi se povezao na mrežu**, a **Bluetooth je pronašao, upario i reprodukovao zvuk na Xiaomi Desktop Speaker-u**.
 
-## Nazivi originalnih ROM-ova (IMG)
+## Izvorni ROM-ovi i nazivi hibridnih IMG datoteka
 
-Ovo su tačni nazivi SlimBOXtv ATV 9.20 firmware fajlova koje sam koristio:
+Za hibridni firmware korišćene su **slimBOXtv 9.20 ATV** verzije namenjene sledećim revizijama uređaja:
 
-| Uređaj / ROM | Naziv IMG fajla | Namena |
-| --- | --- | --- |
-| X96 Max Plus 5 | `sbx_x96max_plus_5_atv_9_20.img` | Funkcionalna DDR inicijalizacija i U-Boot |
-| Magicsee N5 Max X3 152F | `sbx_n5max_x3_152f_atv_9_20.img` | Kernel, Android sistem i Unisoc Wi-Fi/Bluetooth drajveri |
+| Izvorni ROM | Potvrđena revizija na sajtu | Stranica za preuzimanje | Uloga u hibridnom ROM-u |
+| --- | --- | --- | --- |
+| X96 Max Plus | **Plus 5** | [slimBOXtv — X96Max Plus](https://slimboxtv.ru/x96max-plus/) | DDR inicijalizacija i U-Boot komponente koje rade na testiranom uređaju |
+| Magicsee N5 Max X3 | **152F**, Unisoc UWE5621DS | [slimBOXtv — N5 Max X3](https://slimboxtv.ru/n5max-x3/) | Kernel, Android sistem i Wi-Fi/Bluetooth podrška |
 
-X96 ROM se uspešno pokretao, ali Wi-Fi i Bluetooth nisu radili. Magicsee ROM je sadržao potrebne komponente, ali se direktno flešovanje zaustavljalo na približno **7%**, uz grešku `Uboot/Get result/DiskInitial error`.
+**Na odgovarajućoj stranici treba izabrati tačnu reviziju uređaja.** Doslovni nazivi originalnih preuzetih IMG datoteka nisu nezavisno potvrđeni, pa ih ne navodimo napamet. Direktno flešovanje Magicsee ROM-a zaustavljalo se na približno **7%** uz grešku `Uboot/Get result/DiskInitial error`. X96 ROM se pokretao, ali Wi-Fi i Bluetooth nisu radili.
 
-Rešenje je bilo kombinovanje odgovarajućih komponenti oba ROM-a i prilagođavanje Device Tree konfiguracije za AC213 ploču.
+### Nazivi naših hibridnih IMG datoteka
 
-### Nazivi hibridnih IMG fajlova
-
-| Naziv IMG fajla | Status |
+| Naziv IMG datoteke | Potvrđeni status |
 | --- | --- |
-| `LAKI-Hybrid-V4-NOBOOTLOADER-UNTESTED.img` | Fizički testiran: Android TV, Wi-Fi i Bluetooth zvuk rade |
-| `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | Uspešno spakovan i offline proveren; nije fizički testiran |
-| `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | Uspešno spakovan i offline proveren; nije fizički testiran |
+| `LAKI-Hybrid-V4-NOBOOTLOADER-UNTESTED.img` | **Testiran na uređaju:** Android, Wi-Fi i Bluetooth zvuk rade, uz ručno dodeljenu Bluetooth dozvolu |
+| `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | Uspešno spakovan i offline proveren; **nije fizički testiran** |
+| `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | Uspešno spakovan i offline proveren; **nije fizički testiran** |
 
-Nazivi su navedeni radi lakšeg pronalaženja i identifikacije odgovarajućih ROM-ova. Gotove IMG datoteke nisu uključene u repozitorijum.
-
-**Važno:** Pre flešovanja obavezno proveriti kompatibilnost hardvera, posebno reviziju ploče, DDR konfiguraciju i bootloader.
+Ovi nazivi odnose se na naše lokalno izrađene IMG datoteke, a ne na ROM-ove dostupne za preuzimanje iz ovog repozitorijuma. Oznaka `UNTESTED` u nazivu V4 datoteke istorijska je: V4 je naknadno uspešno testiran. Skripte za V5 zahtevaju prethodno pripremljenu V4 sliku; ne sastavljaju V4 automatski iz dva izvorna ROM-a.
 
 ## Potvrđeni hardver
 
@@ -77,7 +73,7 @@ java.lang.SecurityException: Permission Denial
 ... BluetoothPbapService.start(...)
 ```
 
-Na našem rootovanom V4 uređaju problem je rešen komandom:
+Na testiranom V4 uređaju sa root pristupom problem je rešen komandom:
 
 ```bat
 adb shell pm grant com.android.bluetooth android.permission.READ_CONTACTS
@@ -120,7 +116,7 @@ Prvi box je već dobio X96 bootloader prilikom ranijeg flešovanja. Uspeh V4 zat
 
 **Ne uključivati naslepo `Erase flash` ili `Erase bootloader`.** Pogrešan DDR/U-Boot može sprečiti ulazak u USB Burning režim. Potreban je bekap i realan plan oporavka. Pročitaj [FLASHING.md](docs/FLASHING.md).
 
-U ovom repozitorijumu nalaze se dokumentacija, konfiguracioni fajlovi i skripte za izradu LAKI Hybrid firmware-a. Gotove IMG slike nisu uključene; za samostalnu izradu potrebno je obezbediti odgovarajuće ulazne ROM-ove.
+Repozitorijum sadrži dokumentaciju, konfiguraciju i skripte za izradu V5 varijanti iz prethodno pripremljenog V4 firmware-a. Gotove IMG slike nisu uključene; izrada samog V4 za sada nije automatizovana.
 
 Skripte i dokumentacija dostupne su pod [MIT licencom](LICENSE). Projekat je nezavisan i namenjen eksperimentisanju, razmeni iskustava i daljem razvoju firmware-a za Orion LAKI TV Box.
 
