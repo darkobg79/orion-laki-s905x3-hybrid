@@ -20,24 +20,28 @@ V4 je uspešno flešovan (`[0x00000000] Burning successfully`), Android se pokre
 
 ## Nazivi originalnih ROM-ova (IMG)
 
-Ovo su tacni nazivi SlimBOXtv ATV 9.20 firmware fajlova koje sam koristio:
+Ovo su tačni nazivi SlimBOXtv ATV 9.20 firmware fajlova koje sam koristio:
 
-| Uredjaj / ROM | IMG fajl | Namena |
+| Uređaj / ROM | Naziv IMG fajla | Namena |
 | --- | --- | --- |
-| X96 Max Plus 5 | `sbx_x96max_plus_5_atv_9_20.img` | Funkcionalan DDR / U-Boot |
+| X96 Max Plus 5 | `sbx_x96max_plus_5_atv_9_20.img` | Funkcionalna DDR inicijalizacija i U-Boot |
 | Magicsee N5 Max X3 152F | `sbx_n5max_x3_152f_atv_9_20.img` | Kernel, Android sistem i Unisoc Wi-Fi/Bluetooth drajveri |
 
-X96 ROM se pokretao, ali Wi-Fi i Bluetooth nisu radili. Magicsee ROM je imao potrebne komponente, ali je direktno flesovanje pucalo na oko 7% (`DiskInitial error`).
+X96 ROM se uspešno pokretao, ali Wi-Fi i Bluetooth nisu radili. Magicsee ROM je sadržao potrebne komponente, ali se direktno flešovanje zaustavljalo na približno **7%**, uz grešku `Uboot/Get result/DiskInitial error`.
+
+Rešenje je bilo kombinovanje odgovarajućih komponenti oba ROM-a i prilagođavanje Device Tree konfiguracije za AC213 ploču.
 
 ### Nazivi hibridnih IMG fajlova
 
-| IMG fajl | Status |
+| Naziv IMG fajla | Status |
 | --- | --- |
-| `LAKI-Hybrid-V4-NOBOOTLOADER-UNTESTED.img` | Fizicki testiran: Android, Wi-Fi i Bluetooth zvuk rade |
-| `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | Offline proveren; nije fizicki testiran |
-| `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | Offline proveren; nije fizicki testiran |
+| `LAKI-Hybrid-V4-NOBOOTLOADER-UNTESTED.img` | Fizički testiran: Android TV, Wi-Fi i Bluetooth zvuk rade |
+| `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | Uspešno spakovan i offline proveren; nije fizički testiran |
+| `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | Uspešno spakovan i offline proveren; nije fizički testiran |
 
-Nazivi su navedeni radi lakseg pronalazenja i identifikacije ROM-ova. IMG fajlovi nisu postavljeni u repozitorijum. Pre flesovanja proveriti kompatibilnost hardvera.
+Nazivi su navedeni radi lakšeg pronalaženja i identifikacije odgovarajućih ROM-ova. Gotove IMG datoteke nisu uključene u repozitorijum.
+
+**Važno:** Pre flešovanja obavezno proveriti kompatibilnost hardvera, posebno reviziju ploče, DDR konfiguraciju i bootloader.
 
 ## Potvrđeni hardver
 
