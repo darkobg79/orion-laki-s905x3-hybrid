@@ -5,6 +5,8 @@
 
 ## Evidence and limitations
 
+- On 2026-11-01, **V4.1** (locally repacked eARC/DTB audio correction) was physically flashed and tested on the same previously modified box. IPTV video and AUX audio worked. This does **not** validate clean flashing from a stock bootloader, and **does not** validate any V5 image. See [V4.1 evidence](V4_1_AUDIO.md).
+
 - The **first physical box** was originally flashed with a compatible X96 Max Plus 5 ROM and its bootloader replacement option was enabled.
 - Later the **V4 hybrid** (without an explicit `PARTITION/bootloader` entry) flashed successfully, booted, and passed Wi-Fi and Bluetooth audio tests.
 - The original Magicsee ROM failed early with `DiskInitial` at ~7%.

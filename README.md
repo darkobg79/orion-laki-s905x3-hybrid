@@ -2,10 +2,10 @@
 
 **Technical documentation and offline V5 build tools for the Orion LAKI M6CW4K TV box (Amlogic S905X3 / AC213, Unisoc UWE5621 Wi-Fi/Bluetooth). The tools start from an already prepared V4 hybrid image.**
 
-[**Srpski / Serbian README**](README.sr.md) · [Build guide](docs/BUILD.md) · [Hardware details](docs/HARDWARE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Flashing and recovery risks](docs/FLASHING.md)
+[**Srpski / Serbian README**](README.sr.md) · [V4.1 audio validation](docs/V4_1_AUDIO.md) · [Build guide](docs/BUILD.md) · [Hardware details](docs/HARDWARE.md) · [Troubleshooting](docs/TROUBLESHOOTING.md) · [Flashing and recovery risks](docs/FLASHING.md)
 
 > [!IMPORTANT]
-> **The working firmware is V4, tested on one physical box.** V5 NOBOOTLOADER and V5 FULL have been built and their contents verified offline, **but neither V5 image has been boot-tested or clean-install tested**. These tools do not flash hardware, and no firmware images or proprietary vendor binaries are included in this repository.
+> **V4.1 is the latest version physically tested on one box (IPTV picture, Wi-Fi, Bluetooth audio and analog AUX).** V4 had Wi-Fi/BT success but an audio-card/IPTV-video failure. V5 NOBOOTLOADER and V5 FULL have been built and their contents verified offline, **but neither V5 image has been boot-tested or clean-install tested**. These tools do not flash hardware, and no firmware images or proprietary vendor binaries are included in this repository.
 
 ## Why this exists
 
@@ -29,6 +29,7 @@ The donor firmware was selected from the **slimBOXtv 9.20 ATV** releases for the
 | IMG filename | Validation status |
 | --- | --- |
 | `LAKI-Hybrid-V4-NOBOOTLOADER-UNTESTED.img` | Physically flashed and tested: Android boots; Wi-Fi and Bluetooth speaker audio work (Bluetooth required a manual permission grant) |
+| `LAKI-Hybrid-V4.1-AUDIO-EARC-TEST.img` | **Physically flashed on one box:** IPTV video and AUX audio work; Bluetooth audio and Wi-Fi work. V4.1 packed IMG hash not published. |
 | `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | Packed and SHA-256 verified offline; **not flash-tested** |
 | `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | Packed and SHA-256 verified offline; **not flash-tested** |
 
@@ -48,6 +49,12 @@ These three names identify local build outputs, **not downloadable ROMs in this 
 | Tested hybrid kernel | Linux 4.9.113, ARMv7 userspace/kernel |
 
 **The name “LAKI” does not prove that another device has the same board revision, RAM/DDR configuration, eMMC, or wireless chip.** Check hardware before any flash. See [hardware identification](docs/HARDWARE.md).
+
+## V4.1: IPTV video and analog AUX sound verified on-device
+
+V4 registered no ALSA sound card, and IPTV video could freeze after audio initialization failed. The **V4.1 eARC/DAI-link adjustment** restored the `AML-AUGESOUND` sound card and normal IPTV picture. Direct playback through TDM-B/T9015 produced an audible analog AV/AUX tone; Android IPTV audio also became audible after raising **STREAM_MUSIC from 17/65** (50/65 and 55/65 were tested). No GPIO inversion or HAL binary modification was required. An ONTEN HDMI switch changed HPD/video mode, but AUX loudness became equal when Android media volume was fixed at 50/65 in both positions. **Do not infer that HPD itself changed gain.** Full evidence and safe ADB tests: [V4.1 audio validation](docs/V4_1_AUDIO.md).
+
+The V4.1 image was repacked/checked locally and physically tested, but its complete IMG SHA-256 has **not** been recorded in this repository. Existing V5 build scripts still start from the earlier V4 and **do not include the V4.1 audio fix**. The V5 images remain **offline-only validated**.
 
 ## What has actually been confirmed?
 
@@ -103,6 +110,8 @@ V5 adds an Android 9 default-permission XML to the system partition, intending t
 The V4 `NOBOOTLOADER` package **still contains USB DDR and burn-time U-Boot components**. “NOBOOTLOADER” means it omits the *explicit bootloader partition entry in the manifest*, **not** that the flasher can never modify a bootloader. Actual flashing behavior also depends on USB Burning Tool settings.
 
 ## Local images and SHA-256 fingerprints
+
+**V4.1:** `LAKI-Hybrid-V4.1-AUDIO-EARC-TEST.img` was physically tested, but its SHA-256 is not included here. Never substitute the V4 SHA-256 below for V4.1.
 
 These are **checksums of files built on the tester's Windows PC**, not files hosted in this repository:
 

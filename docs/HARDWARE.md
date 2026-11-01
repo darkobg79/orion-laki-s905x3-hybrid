@@ -1,5 +1,7 @@
 # Tested hardware and compatibility checks
 
+**Additional V4.1 hardware validation (2026-11-01):** Amlogic T9015 analog DAC and TDM-B/PCM1 generated an audible tone on the existing AV/AUX cable; IPTV audio and video worked after restoring suitable Android MEDIA volume. See [V4.1 audio diagnostics](V4_1_AUDIO.md). Results apply to this one tested box.
+
 ## Device on which V4 worked
 
 - Orion LAKI TV Box; Amlogic S905X3 / SM1; AC213 board.

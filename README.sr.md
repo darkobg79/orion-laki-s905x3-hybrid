@@ -2,10 +2,10 @@
 
 **Tehnička dokumentacija za Orion LAKI M6CW4K TV Box (Amlogic S905X3 / AC213, Unisoc UWE5621) i alati za izradu V5 firmware-a iz prethodno pripremljene V4 slike.**
 
-[English README](README.md) · [Uputstvo za izradu](docs/BUILD.md) · [Hardver](docs/HARDWARE.md) · [Problemi i rešenja](docs/TROUBLESHOOTING.md) · [Rizici flešovanja](docs/FLASHING.md)
+[English README](README.md) · [V4.1 audio provera](docs/V4_1_AUDIO.md) · [Uputstvo za izradu](docs/BUILD.md) · [Hardver](docs/HARDWARE.md) · [Problemi i rešenja](docs/TROUBLESHOOTING.md) · [Rizici flešovanja](docs/FLASHING.md)
 
 > [!IMPORTANT]
-> **V4 je stvarno testiran na fizičkom uređaju. V5 NOBOOTLOADER i V5 FULL su spakovani i verifikovani offline, ali još nisu fizički flešovani ni testirani posle čistog brisanja.** U ovom repozitorijumu nema gotovih IMG fajlova niti vlasničkih ROM-ova.
+> **V4.1 je najnovija verzija stvarno testirana na jednom uređaju: IPTV slika, Wi-Fi, Bluetooth zvuk i analogni AUX rade.** V4 je imao funkcionalan Wi-Fi/BT, ali problem sa ALSA karticom i IPTV slikom. V5 NOBOOTLOADER i V5 FULL su spakovani i verifikovani offline, ali još nisu fizički flešovani ni testirani posle čistog brisanja.** U ovom repozitorijumu nema gotovih IMG fajlova niti vlasničkih ROM-ova.
 
 ## Kako je sve počelo
 
@@ -34,6 +34,7 @@ Za hibridni firmware korišćene su **slimBOXtv 9.20 ATV** verzije namenjene sle
 | Naziv IMG datoteke | Potvrđeni status |
 | --- | --- |
 | `LAKI-Hybrid-V4-NOBOOTLOADER-UNTESTED.img` | **Testiran na uređaju:** Android, Wi-Fi i Bluetooth zvuk rade, uz ručno dodeljenu Bluetooth dozvolu |
+| `LAKI-Hybrid-V4.1-AUDIO-EARC-TEST.img` | **Fizički flešovan i testiran:** IPTV slika, analogni AUX, Bluetooth zvuk i Wi-Fi rade; kompletan SHA-256 IMG fajla nije objavljen. |
 | `LAKI-Hybrid-V5-FINAL-WiFi-BT.img` | Uspešno spakovan i offline proveren; **nije fizički testiran** |
 | `LAKI-Hybrid-V5-FULL-X96-BOOTLOADER-UNTESTED.img` | Uspešno spakovan i offline proveren; **nije fizički testiran** |
 
@@ -53,6 +54,19 @@ Ovi nazivi odnose se na naše lokalno izrađene IMG datoteke, a ne na ROM-ove do
 | Kernel hibridnog ROM-a | Linux 4.9.113 |
 
 **Drugi LAKI Box ne mora biti identičan samo zato što ima isto komercijalno ime.** Obavezno proveriti reviziju ploče, DDR i eMMC pre bilo kakvog flešovanja.
+
+## V4.1 — ispravka IPTV slike i analognog AUX zvuka
+
+U V4 ALSA zvučna kartica nije bila registrovana (`No soundcards found`), pa se IPTV slika mogla zamrznuti pri otvaranju audio toka. U **V4.1** su lokalno izmenjeni audio DTB podaci u `boot.PARTITION` i `_aml_dtb.PARTITION`: isključen je nekompatibilni eARC čvor i uklonjen `dai-link@6`. Kartica `AML-AUGESOUND` zatim se registrovala, a IPTV video je normalno reprodukovan.
+
+Direktni `tinyplay` na **TDM-B/T9015** potvrdio je da AV/AUX fizički proizvodi zvuk. Kod Android reprodukcije početna jačina `STREAM_MUSIC` bila je **17/65**, što je bilo gotovo nečujno; nakon povećanja na 50/65 ili 55/65 zvuk se čuo. Nije bilo potrebe za izmenom GPIO polariteta niti audio HAL biblioteke. Pri prebacivanju ONTEN HDMI switcha HPD i režim slike jesu se menjali, ali se **AUX glasnoća izjednačila pri istoj Android jačini 50/65**. Uzrok ranijih promena jačine nije dokazan.
+
+```bat
+adb shell media volume --stream 3 --get
+adb shell media volume --stream 3 --set 50
+```
+
+Pre povećanja smanjiti fizičku jačinu zvučnika. Detaljna dijagnostika: [V4.1 audio provera](docs/V4_1_AUDIO.md). V4.1 je potvrđen na **jednom** boxu; IMG heš nije objavljen, a postojeće V5 skripte **ne sadrže** ovu V4.1 korekciju. V5 varijante i dalje **nisu fizički testirane**.
 
 ## Bluetooth — ključni problem i rešenje
 
@@ -84,6 +98,8 @@ Nakon toga `dumpsys bluetooth_manager` prikazivao je `state: ON`, uređaji su us
 **V5** pokušava da ovu dozvolu dodeli automatski kroz `/system/etc/default-permissions/laki-bluetooth.xml`. Fajl je uspešno upisan u sliku i offline proveren, ali **primena nakon fabričkog resetovanja još nije potvrđena na stvarnom uređaju**.
 
 ## Verzije i provereni SHA-256
+
+**V4.1** (`LAKI-Hybrid-V4.1-AUDIO-EARC-TEST.img`) fizički je testiran, ali njegov SHA-256 nije ovde potvrđen. Ne koristiti heš stare V4 slike kao heš V4.1.
 
 | Verzija | Status | SHA-256 |
 | --- | --- | --- |

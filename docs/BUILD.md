@@ -1,5 +1,7 @@
 # Offline V5 build from an existing V4 image (Windows + WSL 2)
 
+> **V4.1 note (2026-11-01):** V4.1 is the latest **physically validated** image for IPTV video and analog audio on one device. The V4.1 eARC/device-tree fix is **not incorporated** into these pre-existing V5 scripts, which still start from the earlier V4 baseline. The two V5 outputs are offline-only verified; do not mistake them for a tested successor. See [V4.1 diagnostic record](V4_1_AUDIO.md).
+
 This guide describes building firmware images locally, not flashing devices. The donor ROMs used for the hybrid are [X96 Max Plus — Plus 5](https://slimboxtv.ru/x96max-plus/) and [Magicsee N5 Max X3 — 152F](https://slimboxtv.ru/n5max-x3/), available through [slimBOXtv](https://slimboxtv.ru/). The repository contains build scripts and documentation, not prebuilt ROM images.
 
 ## Starting point

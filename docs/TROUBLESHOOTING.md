@@ -1,5 +1,7 @@
 # Troubleshooting notes from the tested build
 
+**2026-11-01 update:** V4.1 restores ALSA and IPTV picture; analog sound worked after fixing low Android MEDIA volume. See [V4.1 audio diagnostics](V4_1_AUDIO.md) before touching GPIO, DTB or HAL.
+
 ## USB Burning Tool halts near 7%
 
 Observed on unmodified Magicsee-derived images:
